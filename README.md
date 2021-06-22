@@ -25,11 +25,11 @@ You can even type more than one piece of text and `what` will try to identify th
 
 # 🏓 Table Of Contents
 
-- [Installation](#📩-installation)
-- [API](#🍕-api)
-  - [Command Line](#💻-command-line)
-  - [NodeJS](#🟢-nodejs)
-  - [Browser](#📺-browser)
+- [Installation](#-installation)
+- [API](#-api)
+  - [Command Line](#-command-line)
+  - [NodeJS](#-nodejs)
+  - [Browser](#-browser)
 
 # 📩 Installation
 
@@ -47,6 +47,21 @@ Browser using jsDelivr CDN:
 ## 💻 Command Line
 
 Once installed globally, you will have access to the `what` command. You can use `what --help` to see a basic help menu containing usage, option information and examples.
+
+### Usage
+`what <text> [options]`
+
+### Options
+
+```
+ -h, --help                Show help message.
+ -v, --version             Show the installed version of jsWhat.
+ -s, --search              Search globally within a string.
+ -n, --nontext             The text input is a file path or URL.
+ -t, --tags                Show all the available tags.
+ -f, --filter              Filter the results by names or tags, separate by commons.
+ -e, --exclude             Exclude results based on names and tags, separate by commons.
+```
 
 ### Text
 
