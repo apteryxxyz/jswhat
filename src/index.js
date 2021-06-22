@@ -24,7 +24,7 @@ class What {
         if (!text) text = new Error('[jswhat] Missing or invalid argument \'text\'');
 
         else if (Array.isArray(text) || typeof text === 'string') {
-            if (!nontext) text = [].concat([], text);
+            if (!nontext) text = [].concat.apply([], text);
             else {
                 // this returns a promsie which gets handled later
                 if (this.url.isURL(text)) text = this.url.fetchURL(text);

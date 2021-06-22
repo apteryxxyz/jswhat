@@ -1,4 +1,4 @@
-/* jswhat v0.0.1 | (c) 2021 Apteryx */
+/* jswhat v0.0.2 | (c) 2021 Apteryx */
 (function (root, factory) {
     if (typeof module === 'object' && typeof exports === 'object')
         factory(module.exports);
@@ -11,7 +11,7 @@
         object.what = { regex: {} };
         object.what.is = function (text, search, { filter = '', exclude = '' } = {}) {
             if (!text) text = new Error('[jswhat] Missing or invalid argument \'text\'');
-            else if (Array.isArray(text) || typeof text === 'string') text = [].concat([], text);
+            else if (Array.isArray(text) || typeof text === 'string') text = [].concat.apply([], text);
             else text = new Error(`[jswhat] Parameter 'text' must be an array or string`);
             if (text instanceof Error) {
                 var matched = [];

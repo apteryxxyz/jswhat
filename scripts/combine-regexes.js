@@ -8,7 +8,7 @@ function getRegexes() {
         const regexPath = resolve('src/data/regex', fileName);
         regexes.push(require(regexPath));
     }
-    return regexes.flat();
+    return [].concat.apply([], regexes);
 }
 
 (function () {

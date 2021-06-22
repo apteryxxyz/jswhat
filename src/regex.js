@@ -20,7 +20,7 @@ class RegexIdentifier {
             }
 
             get tags() {
-                this.map(m => m.tags).flat();
+                [].concat.apply([], this.map(m => m.tags));
             }
         }
     }
@@ -50,7 +50,7 @@ class RegexIdentifier {
         })
 
         if (options.filter) {
-            const filter = [options.filter].flat().map(e => e.trim().toLowerCase());
+            const filter = [].concat.apply([], [options.filter]).map(e => e.trim().toLowerCase());
             regexes = regexes.filter(r => {
                 let keep = false;
                 for (let i = 0; i < filter.length && keep !== true; i++)
@@ -60,7 +60,7 @@ class RegexIdentifier {
         }
 
         if (options.exclude) {
-            const exclude = [options.exclude].flat().map(e => e.trim().toLowerCase());
+            const exclude = [].concat.apply([], [options.exclude]).map(e => e.trim().toLowerCase());
             console.log(exclude)
             regexes = regexes.filter(r => {
                 let keep = true;
