@@ -1,4 +1,4 @@
-/* jswhat v0.0.3 | (c) 2021 Apteryx */
+/* jswhat v0.0.4 | (c) 2021 Apteryx */
 (function (root, factory) {
     if (typeof module === 'object' && typeof exports === 'object')
         factory(module.exports);

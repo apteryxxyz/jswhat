@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 0.0.3
+## 0.0.4
 #### 2021/06/23
 - Fixed Array#concat TypeError: CreateListFromArrayLike.
 - Added browser test (test/dist.test.js).
