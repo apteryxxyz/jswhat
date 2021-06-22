@@ -1,6 +1,6 @@
 {
     "name": "jswhat",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "Identify anything.",
     "author": {
         "name": "Apteryx",
@@ -37,8 +37,8 @@
     "deprecated": false,
     "keywords": [
         "what",
-        "pywhat",
         "jswhat",
+        "pywhat",
         "identify",
         "regex",
         "browser",
