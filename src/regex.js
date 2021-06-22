@@ -16,11 +16,11 @@ class RegexIdentifier {
             }
 
             get names() {
-                this.map(m => m.name);
+                return this.map(m => m.name);
             }
 
             get tags() {
-                [].concat.apply([], this.map(m => m.tags));
+                return [].concat.apply([], this.map(m => m.tags));
             }
         }
     }
