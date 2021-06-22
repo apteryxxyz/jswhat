@@ -18,10 +18,11 @@
 `jsWhat` is a JavaScript version of the existing [pyWhat](https://github.com/bee-san/pyWhat). Works in NodeJS, the browser and the command line.
 
 Have you ever come across a mysterious 🧙‍♂️ piece of text and wondered what it might be? Perhaps something like `rBxwE6ivExFJjRPh5cZtpq1ghTDm6cV5YP` or `2001:0db8:85a3:0000:0000:8a2e:0370:7334`?
-Well with `what` all you have to do is ask `what rBxwE6ivExFJjRPh5cZtpq1ghTDm6cV5YP` and it will tell you!
-You can even type more than one piece of text and `what` will try to identify them all (`what rBxwE6ivExFJjRPh5cZtpq1ghTDm6cV5YP 2001:0db8:85a3:0000:0000:8a2e:0370:7334`).
 
-`what`s' job is to help you by identifing what something is. Wether it be a simple string of text, a file, or even a URL! `what` can read a file and identify text within it, fetch data from a URL and identify text within that data, or simply identify a string of text.
+Well with `what` all you have to do is ask `what rBxwE6ivExFJjRPh5cZtpq1ghTDm6cV5YP` and it will tell you!
+You can even feed `what` more than one piece of text and it will try to identify them all (`what rBxwE6ivExFJjRPh5cZtpq1ghTDm6cV5YP 2001:0db8:85a3:0000:0000:8a2e:0370:7334`).
+
+`what`s' job is to help you by identifing what something is. Whether it be a simple string of text, a file, or even a URL! `what` can read a file and identify text within it, fetch data from a URL and identify text within that data, or simply identify a string of text.
 
 # 🏓 Table Of Contents
 
@@ -46,7 +47,7 @@ Browser using jsDelivr CDN:
 
 ## 💻 Command Line
 
-Once installed globally, you will have access to the `what` command. You can use `what --help` to see a basic help menu containing usage, option information and examples.
+Once installed globally, you will gain access to the `what` command. You can use `what --help` to see a basic help menu containing usage, option inforamtion and examples. You can also use the command `jswhat`, which is just an alias to `what`.
 
 ### Usage
 `what <text> [options]`
@@ -65,15 +66,15 @@ Once installed globally, you will have access to the `what` command. You can use
 
 ### Text
 
-When wanting to identify some basic text, simply type `what <text>` and the module will try to identify what it is. You can also identify multiple strings by simply putting a space between the strings `what <text> <text> <text>`. Anything argument that doesn't start with a dash (-) will be considered a string to identify.
+When wanting to identify some basic text, you can simply type `what <text>` and `what` will try to identify what it is. You can also identify multiple stirngs by simply feeding `what` more strings (with spaces in between) like `what <text> <text> <text>`. In fact, any argument that does not start with a dash (-) will be treated as a string to identify.
 
 ### File
 
-You can also scan a file and identify strings within them. All you have to do is pass a file path as the text argument and enable the `nontext` option `what path/to/file --nontext`. The `nontext` is required to ensure you are meaning to scan a file, as you could be looking to identify the path itself instead.
+You have the ability to use `what` to scan a file and identify the content within. All you need to do is pass a file path as the text argument and enable the `nontext` option. For example `what path/to/file --nontext`. The `nontext` is required to ensure you are meaning to scan a file, as you could be looking to identify the path to the file itself instead.
 
 ### URL
 
-You have the ability to also scan text from a URL. It cound be the HTML of a site like `https://www.google.com/` or the contents of  a file hosted online, like `https://data.iana.org/TLD/tlds-alpha-by-domain.txt`, example `what https://url.to/text --nontext`. This also requires the `nontext` option for the same reason as a file.
+You can also use `what` to scan the text from the other end of a URL. It could be the HTML of a site like `https://www.google.com/` or the contents of a file hosted online, like `https://data.iana.org/TLD/tlds-alpha-by-domain.txt`, example `what https://url.to/text --nontext`. This also requires the `nontext` option for the same reason as a file.
 
 ## 🟢 NodeJS
 
