@@ -1,5 +1,6 @@
 const { readdirSync, readFileSync, writeFileSync } = require('fs');
 const { resolve } = require('path');
+const package = require('../package.json');
 
 (function () {
     const regexes = require('../src/data/regexes.json').map(r => {
@@ -14,6 +15,9 @@ const { resolve } = require('path');
     if (jsonLine) {
         const newLine = `what.regex.json = ${JSON.stringify({ regexes, phoneCodes })};`;
         whatLines[index] = newLine;
-        return writeFileSync(resolve('dist/what.js'), whatLines.join('\n'));
     }
+
+    const newCopyrightLine = `/* jswhat v${package.version} | (c) 2021 Apteryx */`;
+    whatLines[0] = newCopyrightLine;
+    return writeFileSync(resolve('dist/what.js'), whatLines.join('\n'));
 })();
