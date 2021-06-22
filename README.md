@@ -4,14 +4,12 @@
   <code>npm install jswhat --global</code>
 </p>
 
-<!--
 <p align="center">
   <a href="https://github.com/apteryxxyz/jswhat/"><img alt="module version" src="https://img.shields.io/github/package-json/v/apteryxxyz/jswhat?logo=github"></a>
   <a href="https://npmjs.com/package/jswhat"><img alt="total downloads" src="https://img.shields.io/npm/dt/jswhat?logo=npm"></a>
   <a href="https://github.com/apteryxxyz/jswhat/"><img alt="javascript percentage" src="https://img.shields.io/github/languages/top/apteryxxyz/jswhat?logo=github"></a>
   <a href="https://github.com/apteryxxyz/jswhat/blob/main/LICENSE"><img alt="license" src="https://img.shields.io/npm/l/jswhat?logo=github"></a>
 </p>
--->
 
 # 🤔 What is what?
 
