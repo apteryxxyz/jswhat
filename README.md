@@ -36,9 +36,9 @@ Command Line/NodeJS using NPM:
 
 ```npm install jswhat --global```
 
-Browser using jsDelivr CDN:
+Browser using unpkg CDN:
 
-```<script src="https://cdn.jsdelivr.net/npm/jswhat/dist/what.min.js"></script>```
+```<script src="https://unpkg.com/jswhat/dist/what.min.js"></script>```
 
 
 # 🍕 API
