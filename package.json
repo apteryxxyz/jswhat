@@ -1,0 +1,53 @@
+{
+    "name": "jswhat",
+    "version": "0.0.1",
+    "description": "Identify anything.",
+    "author": {
+        "name": "Apteryx",
+        "url": "https://www.apteryx.xyz/"
+    },
+    "main": "src/index.js",
+    "license": "MIT",
+    "homepage": "https://github.com/apteryxxyz",
+    "changelog": {
+        "url": "https://github.com/apteryxxyz/jswhat/blob/CHANGELOG.md"
+    },
+    "bugs": {
+        "url": "https://github.com/apteryxxyz/jswhat/issues"
+    },
+    "bin": {
+        "what": "bin/cli",
+        "jswhat": "bin/cli"
+    },
+    "scripts": {
+        "test": "npx jest --verbose",
+        "build": "npm run build:tlds && npm run build:json && npm run build:regexes && npm run build:browser",
+        "build:browser": "node scripts/browserify.js && npx uglifyjs dist/what.js -o dist/what.min.js --compress --mangle --comments all",
+        "build:regexes": "node scripts/combine-regexes.js",
+        "build:json": "node scripts/format-json.js",
+        "build:tlds": "node scripts/update-tlds.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/apteryxxyz/jswhat.git"
+    },
+    "engines": {
+        "node": ">=7.6.0"
+    },
+    "deprecated": false,
+    "keywords": [
+        "what",
+        "pywhat",
+        "jswhat",
+        "identify",
+        "regex",
+        "browser",
+        "cli"
+    ],
+    "bundledDependencies": [],
+    "devDependencies": {
+        "@types/jest": "^26.0.23",
+        "jest": "^27.0.4",
+        "uglify-js": "^3.13.9"
+    }
+}

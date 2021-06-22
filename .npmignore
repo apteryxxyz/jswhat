@@ -1,0 +1,11 @@
+node_modules/
+scripts/
+test/
+
+.github/
+.gitignore
+.gitattributes
+
+.editorconfig
+.travis.yml
+jsconfig.json
