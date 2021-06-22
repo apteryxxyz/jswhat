@@ -9,3 +9,5 @@ test/
 .editorconfig
 .travis.yml
 jsconfig.json
+
+CHANGELOG.md
