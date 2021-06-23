@@ -1,5 +1,5 @@
-const URLHandler = require('../src/url');
-const url = new URLHandler();
+const what = require('../');
+const url = what.url;
 
 test('Is URL', function () {
     const path = 'https://data.iana.org/TLD/tlds-alpha-by-domain.txt';

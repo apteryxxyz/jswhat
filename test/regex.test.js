@@ -1,5 +1,5 @@
-const RegexIdentifier = require('../src/regex');
-const regex = new RegexIdentifier();
+const what = require('../');
+const regex = what.regex;
 
 for (const r of regex.regexes) {
     if (!r.test) continue;
