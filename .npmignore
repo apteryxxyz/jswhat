@@ -1,5 +1,6 @@
 node_modules/
 scripts/
+src/data/regex/
 test/
 
 .github/
