@@ -3,6 +3,11 @@
   <img alt="changelog" src=".github/changeLog.png">
 </p>
 
+## 0.0.7
+#### 2021/06/24
+- Automatically add http:// to matched URLs without them.
+- Changed 'Matched' class name to 'Matches'.
+
 ## 0.0.6
 #### 2021/06/23
 - Added 'matched' property to Matched class.
