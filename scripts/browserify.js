@@ -9,11 +9,11 @@ const package = require('../package.json');
     })
     const phoneCodes = require('../src/data/phone_codes.json');
     const whatLines = readFileSync(resolve('dist/what.js')).toString().split('\n');
-    const jsonLine = whatLines.find(l => l.match(/.+(this\.regex\.json = {).+/));
+    const jsonLine = whatLines.find(l => l.match(/.+(object\.what\.regex\.json = {).+/));
     const index = whatLines.indexOf(jsonLine);
 
     if (jsonLine) {
-        const newLine = `what.regex.json = ${JSON.stringify({ regexes, phoneCodes })};`;
+        const newLine = `object.what.regex.json = ${JSON.stringify({ regexes, phoneCodes })};`;
         whatLines[index] = newLine;
     }
 
