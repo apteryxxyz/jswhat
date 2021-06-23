@@ -1,6 +1,6 @@
 {
     "name": "jswhat",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "description": "Identify anything.",
     "author": {
         "name": "Apteryx",
@@ -25,7 +25,8 @@
         "build:browser": "node scripts/browserify.js && npx uglifyjs dist/what.js -o dist/what.min.js --compress --mangle --comments all",
         "build:regexes": "node scripts/combine-regexes.js",
         "build:json": "node scripts/format-json.js",
-        "build:tlds": "node scripts/update-tlds.js"
+        "build:tlds": "node scripts/update-tlds.js",
+        "publish:prepare": "npm run test && npm run build && npm run test"
     },
     "repository": {
         "type": "git",

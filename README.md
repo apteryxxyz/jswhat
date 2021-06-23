@@ -132,7 +132,7 @@ The above method will return an array of objects in the following format:
 - `[options.exclude] {string|string[]}` = A string or array of names or tags to exclude from the results.
 
 ```js
-<script src="https://cdn.jsdelivr.net/npm/jswhat/dist/what.min.js"><script/>
+<script src="https://unpkg.com/jswhat/dist/what.min.js"></script>
 
 <script>
   console.log(what.is('e@mail.com'));
