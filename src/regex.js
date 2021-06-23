@@ -15,12 +15,17 @@ class RegexIdentifier {
                 })
             }
 
+            get matched() {
+                return this.map(m => m.matched);
+            }
+
             get names() {
                 return this.map(m => m.name);
             }
 
             get tags() {
-                return [].concat.apply([], this.map(m => m.tags));
+                return [].concat.apply([], this.map(m => m.tags))
+                    .filter((t, i, s) => s.indexOf(t) === i)
             }
         }
     }
