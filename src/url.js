@@ -7,7 +7,9 @@ const request = noThrow(() => require('request'));
 function noThrow(fn) {
     try {
         return fn();
-    } catch { };
+    } catch (err) {
+        return undefined;
+    }
 }
 
 class URLHandler {
@@ -37,8 +39,8 @@ class URLHandler {
             let url = new URL(string);
             if (easyMode === true) return true;
             else return !!url.protocol.match(/https?:/);
-        } catch {
-            return false
+        } catch (err) {
+            return false;
         }
     }
 
