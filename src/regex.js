@@ -1,3 +1,25 @@
+class Matches extends Array {
+    constructor(text, error) {
+        super();
+        Object.defineProperties(this, {
+            text: { value: text },
+            error: { value: error }
+        })
+    }
+
+    get matched() {
+        return this.map(m => m.matched);
+    }
+
+    get names() {
+        return this.map(m => m.name);
+    }
+
+    get tags() {
+        return [].concat.apply([], this.map(m => m.tags))
+            .filter((t, i, s) => s.indexOf(t) === i)
+    }
+}
 class RegexIdentifier {
     constructor(what) {
         this.what = what;
@@ -5,35 +27,13 @@ class RegexIdentifier {
         this.phoneCodes = require('./data/phone_codes.json');
         const tags = [].concat.apply([], this.regexes.map(r => r.tags || []));
         this.tags = tags.filter((v, i, s) => s.indexOf(v) === i);
-
-        this.Matched = class Matched extends Array {
-            constructor(text, error) {
-                super();
-                Object.defineProperties(this, {
-                    text: { value: text },
-                    error: { value: error }
-                })
-            }
-
-            get matched() {
-                return this.map(m => m.matched);
-            }
-
-            get names() {
-                return this.map(m => m.name);
-            }
-
-            get tags() {
-                return [].concat.apply([], this.map(m => m.tags))
-                    .filter((t, i, s) => s.indexOf(t) === i)
-            }
-        }
+        this.Matches = Matches;
     }
 
     check(strings, options = {}) {
         const timer = Date.now();
         if (typeof strings === 'string') strings = [strings];
-        const matched = new this.Matched(strings);
+        const matched = new this.Matches(strings);
 
         if (!Array.isArray(strings) && typeof strings !== 'string')
             matched.error = new Error(`[jswhat] Parameter 'text' must be an array or string`);
@@ -66,7 +66,6 @@ class RegexIdentifier {
 
         if (options.exclude) {
             const exclude = [].concat.apply([], [options.exclude]).map(e => e.trim().toLowerCase());
-            console.log(exclude)
             regexes = regexes.filter(r => {
                 let keep = true;
                 for (let i = 0; i < exclude.length && keep !== false; i++)
@@ -95,11 +94,14 @@ class RegexIdentifier {
                             match.description = `Location(s): ${locations.join(', ')}`.trim();
                     }
 
-                    if (url && url.includes('{'))
+                    if (url && url.includes('{')) {
                         for (let i = 0; i < 10; i++) {
                             if (!match[i]) continue;
                             else match.url = match.url.replace(new RegExp(`\\{${i}\\}`, 'g'), match[i] || '');
                         }
+                        if (!this.what.url.isURL(match.url))
+                            match.url = new URL(`http://${match.url}`).href;
+                    }
 
                     matched.push({
                         matched: match[0],

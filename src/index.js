@@ -35,7 +35,7 @@ class What {
 
         const self = this;
         function check(strings) {
-            if (strings instanceof Error) return new self.regex.Matched(undefined, strings);
+            if (strings instanceof Error) return new self.regex.Matches(undefined, strings);
             return self.regex.check(strings, { search, nontext, filter, exclude });
         }
 
