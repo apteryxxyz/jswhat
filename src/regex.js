@@ -11,7 +11,7 @@ class RegexIdentifier {
                 super();
                 Object.defineProperties(this, {
                     text: { value: text },
-                    error: { valu: error }
+                    error: { value: error }
                 })
             }
 
