@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jsWhat</title>
+
+    <script src="https://unpkg.com/jswhat/dist/what.min.js"></script>
+    <script>
+        function check() {
+            document.getElementById('result').innerHTML = '';
+            var text = document.getElementById('text').value,
+                result = what.is(text);
+
+            if (result.error) return document.getElementById('result').innerHTML = result.error;
+            var mapped = result.map(m => ['Identified as: ' + m.name, 'Matched at: ' + m.matched, 'Description: ' + m.description, 'Tags: ' + m.tags.join(', ')].join('<br>'));
+            document.getElementById('result').innerHTML = 'Results: ' + result.length + '<br><br>' + mapped.join('<br><br>');
+        }
+    </script>
+</head>
+
+<body>
+    <p>Type something into the textbox below and press 'WHAT?'</p>
+    <input id="text" type="text" style="width: 35%;">
+    <button onclick="check()">WHAT?</button>
+    <br>
+    <br>
+    <span id="result">
+
+    </span>
+</body>
+
+</html>
