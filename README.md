@@ -100,13 +100,15 @@ const nontext = await what.is('https://data.iana.org/TLD/tlds-alpha-by-domain.tx
 
 const filter = what.is(['microsoft@hotmail.com', 'google@gmail.com'], true, { filter: 'Uniform Resource Locator (URL)' });
 // URL (hotmail.com), URL (gmail.com)
+
+// if an error is produce
 ```
 
 ### Output
 
 The above method will return an array of objects in the following format:
 
-```json
+```js
 [
   {
     "matched": String, // the content that was identified
@@ -117,6 +119,9 @@ The above method will return an array of objects in the following format:
     "tags": String[] // array of tags for the identified
   },
   ...
+  text: String, // the strings passed into the method
+  error: Error, // if the method produces an error, if will appear in this property
+
 ]
 ```
 

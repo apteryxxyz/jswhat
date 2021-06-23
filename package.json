@@ -1,6 +1,6 @@
 {
     "name": "jswhat",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "description": "Identify anything.",
     "author": {
         "name": "Apteryx",
@@ -26,7 +26,7 @@
         "build:regexes": "node scripts/combine-regexes.js",
         "build:json": "node scripts/format-json.js",
         "build:tlds": "node scripts/update-tlds.js",
-        "publish:prepare": "npm run test && npm run build && npm run test"
+        "publish:prepare": "npm run build && npm run test"
     },
     "repository": {
         "type": "git",

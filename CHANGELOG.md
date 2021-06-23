@@ -1,4 +1,14 @@
-# CHANGELOG
+<p align="center">
+  <img alt="jswhat" src=".github/logo.png"><br>
+  <img alt="changelog" src=".github/changeLog.png">
+</p>
+
+## 0.0.6
+#### 2021/06/23
+- Added 'matched' property to Matched class.
+- Changed US SSN regex to support older versions of node.
+- Fixed try catch throwing error on older versions of node.
+- Fixed Matched class property 'error' not having a value.
 
 ## 0.0.5
 #### 2021/06/23
