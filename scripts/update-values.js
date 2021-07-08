@@ -13,7 +13,10 @@
             /(version-(\d{1,3}\.\d{1,3}\.\d{1,3})-red)/g,
             'version-' + packageJson.version + '-red'
         )
-        .replace(/jswhat@\d{1,3}\.\d{1,3}\.\d{1,3}/g, 'jswhat@' + packageJson);
+        .replace(
+            /jswhat@\d{1,3}\.\d{1,3}\.\d{1,3}/g,
+            'jswhat@' + packageJson.version
+        );
     writeFileSync(resolve(__dirname, '../README.md'), newReadMeContent);
 
     const indexContent = readFileSync(

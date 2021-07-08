@@ -92,7 +92,7 @@ Once installed globally, you will gain access to the `what` command. You can use
  -h, --help                Show help message.
  -v, --version             Show the installed version of jsWhat.
  -s, --search              Search globally within a string.
- -n, --nontext             The text input is a file path or URL.
+ -n, --non-text             The text input is a file path or URL.
  -t, --tags                Show all the available tags.
  -f, --filter              Filter the results by names or tags, separate by commons.
  -e, --exclude             Exclude results based on names and tags, separate by commons.
@@ -105,8 +105,8 @@ You can identify more than one piece of text by simply feeding `what` more strin
 
 ### Non-Text
 
-You also have the ability to use `what` to read a file and fetch data from a URL. All you need to do is pass a file path or URL as the text argument and enable the `nontext` option. Examples `what ./src/data/regexes.json --nontext`, `what https://data.iana.org/TLD/tlds-alpha-by-domain.txt -n`.
-The `nontext` is required to ensure you are meaning to read a file or fetch a URL, as you could be looking to identify the path to the file or URL itself instead.
+You also have the ability to use `what` to read a file and fetch data from a URL. All you need to do is pass a file path or URL as the text argument and enable the `non-text` option. Examples `what ./src/data/regexes.json --non-text`, `what https://data.iana.org/TLD/tlds-alpha-by-domain.txt -n`.
+The `non-text` is required to ensure you are meaning to read a file or fetch a URL, as you could be looking to identify the path to the file or URL itself instead.
 
 ## 🟢 Node
 
@@ -125,20 +125,6 @@ The node module is very simply to use, containing only a single method.
 - `[options.exclude] {string|string[]}` Names or tags to exclude from the results.
 - `[options.promise] {boolean}` = Force the method to return a promise.
 - `[options.throwError] {boolean}` = In case of an error, throw it instead of saving it to the 'error' property.
-
-/\*\*
-_ Identify anything.
-_ @param {string|string[]} text Text to be identified.
-_ @param {boolean} search Search the text globally.
-_ @param {object} options Extra options.
-_ @param {boolean} [options.nonText] Text should be treated as a file path or URL.
-_ @param {string|string[]} [options.filter] Names or tags to filter results by.
-_ @param {string|string[]} [options.exclude] Names or tags to exclude from the results.
-_ @param {boolean} [options.promise] Return a promise in all cases.
-_ @param {boolean} [options.throwError] In case of an error, throw it instead of saving it to the 'error' property.
-_ @returns {object[]|promise<object[]>} If successful, an array containing objects with what was identified,
-_ if it is unsuccessfully, the result will have an error property.
-_/
 
 The above method returns an array containing objects. Format is as follows:
 
