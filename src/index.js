@@ -9,7 +9,7 @@
     }
 })(this, function () {
     var what = {
-        version: '1.0.0',
+        version: '1.0.1',
         isDeno: typeof Deno != 'undefined',
         isNode:
             typeof process != 'undefined' &&

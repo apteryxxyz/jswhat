@@ -3,6 +3,13 @@
   <img alt="changelog" src=".github/changeLog.png">
 </p>
 
+## 1.0.1
+
+#### 2021/07/08
+
+- Removed 'cli-table' support.
+- Fixed Array#isArray checking for null instead of false.
+
 ## 1.0.0
 
 #### 2021/07/07

@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/apteryxxyz/jswhat/"><img alt="jswhat version" src="https://img.shields.io/badge/version-1.0.0-red"></a>
+  <a href="https://github.com/apteryxxyz/jswhat/"><img alt="jswhat version" src="https://img.shields.io/badge/version-1.0.1-red"></a>
   <a href="https://npmjs.com/package/jswhat"><img alt="total downloads" src="https://img.shields.io/npm/dt/jswhat"></a>
   <br>
   <a href="https://npmjs.com/package/jswhat"><img alt="node version" src="https://img.shields.io/badge/node-0.12.0-lime"></a>
@@ -54,20 +54,20 @@ Check out a live example at [JSFiddle](https://jsfiddle.net/p4rzL10s/).
 
 ### Command Line using NPM:
 
-```
+```bash
 npm install jswhat --global
 ```
 
 ### Node using NPM:
 
-```
+```bash
 npm install jswhat
 ```
 
 ### Browser using unpkg CDN:
 
-```
-<script src="https://unpkg.com/jswhat@[object Object]/dist/what.min.js"></script>
+```html
+<script src="https://unpkg.com/jswhat@1.0.1/dist/what.min.js"></script>
 ```
 
 ### Deno using NPM:
@@ -78,7 +78,7 @@ View usage [here](#-deno).
 
 ## 💻 Command Line
 
-<a href="https://npmjs.com/package/jswhat"><img alt="node support versions" src="https://img.shields.io/badge/node-0.12.0-lime"></a>
+<a href="https://npmjs.com/package/jswhat"><img alt="node support versions" src="https://img.shields.io/badge/node-10.0.0-lime"></a>
 
 Once installed globally, you will gain access to the `what` command. You can use `what --help` to see a basic help menu containing usage, option infromation and examples. You can also use the command `jswhat`, which is just an alias for `what`.
 
@@ -92,7 +92,7 @@ Once installed globally, you will gain access to the `what` command. You can use
  -h, --help                Show help message.
  -v, --version             Show the installed version of jsWhat.
  -s, --search              Search globally within a string.
- -n, --non-text             The text input is a file path or URL.
+ -n, --non-text            The text input is a file path or URL.
  -t, --tags                Show all the available tags.
  -f, --filter              Filter the results by names or tags, separate by commons.
  -e, --exclude             Exclude results based on names and tags, separate by commons.
@@ -160,8 +160,8 @@ The above method returns an array containing objects. Format is as follows:
 
 `jsWhat` works in almost the exact same way in the browser as in NodeJS, although without the ability to read a file.
 
-```
-<script src="https://unpkg.com/jswhat@[object Object]/dist/what.min.js"></script>
+```html
+<script src="https://unpkg.com/jswhat@1.0.1/dist/what.min.js"></script>
 ```
 
 `<what>.is(<text>, [search], [options])`
@@ -185,7 +185,7 @@ Note: Not completely tested
 In order to use `jsWhat` in Deno you must use the 'Deno standard library' 'node/module.ts'.
 Other than that the use of `jsWhat` in Deno is almost exactly the same as in Node, so refer to that documentation in most cases.
 
-```
+```bash
 npm install jswhat
 ```
 
@@ -196,6 +196,6 @@ const require = createRequire(import.meta.url);
 const what = require('jswhat');
 ```
 
-```
+```bash
 deno run --unstable --allow-read deno.js
 ```

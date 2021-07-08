@@ -1,6 +1,6 @@
 {
     "name": "jswhat",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Identify anything. jsWhat lets you easily identify emails, IP addresses, and more. Works in Node, Deno, the browser and the command line.",
     "author": {
         "name": "Apteryx",
