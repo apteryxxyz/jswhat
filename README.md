@@ -172,23 +172,7 @@ The above method returns an array containing objects. Format is as follows:
 - `[options.filter] {string|string[]}` = A string or array of names or tags to filter results by.
 - `[options.exclude] {string|string[]}` = A string or array of names or tags to exclude from the results.
 
-The above method returns an array containing objects. Format is as follows:
-
-```js
-[
-  {
-    "matched": String, // the content that was identified
-    "name": String, // what it was identified as
-    "description": String, // a description of what was identified
-    "url": String, // a URL, sometimes linking to somewhere with more information
-    "regex": RegExp, // the regex that was used to identify the text
-    "tags": String[] // array of tags for the identified
-  },
-  ...
-  text: String[], // the strings passed into the method
-  error: Error, // if the method produces an error, it will appear in this property
-]
-```
+The above method returns an array containing objects. Format is the same as in [Node](#-node).
 
 ## 🐱‍🐉 Deno
 
