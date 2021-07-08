@@ -1,1 +1,35 @@
-[{"name":"Capture The Flag (CTF) Flag","description":"","url":"","regex":"flag{.*}|ctf{.*}|ctfa{.*}","flags":"i","test":"ctf{helloworld}","tags":["Cyber Security"]},{"name":"HackTheBox Flag Format","description":"Used for Capture The Flags at https://hackthebox.eu","url":"","regex":"hackthebox{.*}|htb{.*}","flags":"i","test":"hackthebox{helloworld}","tags":["Cyber Security"]},{"name":"SSH ECDSA Public Key","description":"","url":"","regex":"ecdsa-sha2-nistp[0-9]{3} [A-Za-z0-9+/=]+[^ \n]+","flags":"","test":"ecdsa-sha2-nistp229 AAAAC3NzaC1lZDI1NTE5AAAAIB8Ht8Z3j6yDWPBHQtOp/R9rjWvfMYo3MSA/K6q8D86r","tags":["Credentials","Cyber Security"]},{"name":"SSH ED25519 Public Key","description":"","url":"","regex":"ssh-ed25519 [A-Za-z0-9+/=]+[^ \n]+","flags":"","test":"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB8Ht8Z3j6yDWPBHQtOp/R9rjWvfMYo3MSA/K6q8D86r","tags":["Credentials","Cyber Security"]},{"name":"SSH RSA Public Key","description":"","url":"","regex":"ssh-rsa [A-Za-z0-9+/=]+[^ \n]+","flags":"","test":"ssh-rsa AAAAC3NzaC1lZDI1NTE5AAAAIB8Ht8Z3j6yDWPBHQtOp/R9rjWvfMYo3MSA/K6q8D86r","tags":["Credentials","Cyber Security"]},{"name":"TryHackMe Flag Format","description":"Used for Capture The Flags at https://tryhackme.com","url":"","regex":"thm{.*}|tryhackme{.*}","flags":"i","test":"tryhackme{helloworld}","tags":["Cyber Security"]}]
+[
+    {
+        "name": "Capture The Flag (CTF) Flag",
+        "short": "Capture The Flag",
+        "category": "Cyber Security",
+        "description": "",
+        "url": "",
+        "regex": "flag{.*}|ctf{.*}|ctfa{.*}",
+        "flags": "i",
+        "test": "ctf{helloworld}",
+        "tags": ["Cyber Security"]
+    },
+    {
+        "name": "HackTheBox Flag Format",
+        "short": "HackTheBox",
+        "category": "Cyber Security",
+        "description": "Used for Capture The Flags at https://hackthebox.eu",
+        "url": "",
+        "regex": "hackthebox{.*}|htb{.*}",
+        "flags": "i",
+        "test": "hackthebox{helloworld}",
+        "tags": ["Cyber Security"]
+    },
+    {
+        "name": "TryHackMe Flag Format",
+        "short": "TryHackMe",
+        "category": "Cyber Security",
+        "description": "Used for Capture The Flags at https://tryhackme.com",
+        "url": "",
+        "regex": "thm{.*}|tryhackme{.*}",
+        "flags": "i",
+        "test": "tryhackme{helloworld}",
+        "tags": ["Cyber Security"]
+    }
+]
