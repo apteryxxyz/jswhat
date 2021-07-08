@@ -116,7 +116,7 @@
         var original = text;
         if (text == null) {
             text = new Error("[jswhat] Missing or invalid argument 'text'");
-        } else if (Array.isArray(text) == null && typeof text == 'string') {
+        } else if (Array.isArray(text) == false && typeof text != 'string') {
             text = new Error(
                 "[jswhat] Parameter 'text' must be an array or string"
             );

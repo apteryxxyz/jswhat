@@ -2,12 +2,14 @@ module.exports = exports = /***(***/ function (what) {
     what.check = function (strings, options) {
         var timer = Date.now();
         strings = what.flat([strings]);
-        if (options == null) options = {};
+        if (options == null) {
+            options = {};
+        }
 
         var error;
         if (
             options.exclude &&
-            Array.isArray(options.exclude) == null &&
+            Array.isArray(options.exclude) == false &&
             typeof options.exclude != 'string'
         ) {
             matched.error = new Error(
@@ -16,7 +18,7 @@ module.exports = exports = /***(***/ function (what) {
         }
         if (
             options.include &&
-            Array.isArray(options.include) == null &&
+            Array.isArray(options.include) == false &&
             typeof options.include != 'string'
         ) {
             error = new Error(
@@ -26,7 +28,7 @@ module.exports = exports = /***(***/ function (what) {
         if (options.search && typeof options.search != 'boolean') {
             error = new Error("[jswhat] Option 'search' must be a boolean");
         }
-        if (Array.isArray(strings) == null && typeof strings != 'string') {
+        if (Array.isArray(strings) == false && typeof strings != 'string') {
             error = new Error(
                 "[jswhat] Parameter 'text' must be an array or string"
             );
@@ -39,8 +41,12 @@ module.exports = exports = /***(***/ function (what) {
             var c = JSON.parse(JSON.stringify(r)),
                 newFlags = r.flags;
             c.boundary = '^' + r.regex + '$';
-            if (options.search != true) c.regex = c.boundary;
-            if (options.search == true) newFlags = newFlags + 'g';
+            if (options.search != true) {
+                c.regex = c.boundary;
+            }
+            if (options.search == true) {
+                newFlags = newFlags + 'g';
+            }
             c.expression = new RegExp(c.regex, newFlags);
             return c;
         });
