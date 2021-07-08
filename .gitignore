@@ -1,1 +1,11 @@
+# workspace
+.vscode/
+
+# dev files
 node_modules/
+
+# built files
+dist/*
+
+# pack
+*.tgz

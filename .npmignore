@@ -1,14 +1,37 @@
+# workspace
+.vscode/
+
+# dev files
 node_modules/
+examples/
 scripts/
-src/data/regex/
 test/
 
+# code files
+src/*.js
+src/data/
+
+# pack
+*.tgz
+
+# github
 .github/
 .gitignore
 .gitattributes
 
+# format
+.prettierignore
+.eslintignore
+.eslintrc.js
+
+# misc
 .editorconfig
+.escheckrc
 .travis.yml
 jsconfig.json
+gulpfile.js
 
+# md
 CHANGELOG.md
+CODE_OF_CONDUCT.md
+CONTRIBUTING.md

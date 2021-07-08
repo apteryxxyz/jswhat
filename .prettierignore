@@ -1,0 +1,5 @@
+# dist
+dist/*.min.js
+
+# examples
+examples/*.html

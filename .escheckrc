@@ -1,0 +1,10 @@
+{
+    "ecmaVersion": "es5",
+    "module": false,
+    "files": [
+        "./src/*.js",
+        "./src/**/*.js",
+        "./dist/*.js"
+    ],
+    "not": []
+}
