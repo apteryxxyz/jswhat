@@ -1,6 +1,8 @@
-console.log('NODE', '\n');
+console.log('DENO', '\n');
 
-var what = require('jswhat');
+import { createRequire } from 'https://deno.land/std/node/module.ts';
+const require = createRequire(import.meta.url);
+const what = require('jswhat');
 
 // general usage
 var match = what.is('hot@mail.com')[0];
@@ -47,10 +49,7 @@ try {
 }
 
 // read text from a file
-var file = require('path').resolve(__dirname, '../package.json');
-var read = what.is(file, true, {
-    nonText: true,
-});
+var read = what.is('package.json', true, { nonText: true });
 if (read.error) console.log(read.error, '\n');
 else console.log('Read text from the package.json file\n', read.tags, '\n');
 
@@ -60,12 +59,11 @@ var fetched = what.is(
     true,
     { nonText: true }
 );
-if (fetched.error) console.log(fetched.error, '\n');
+if (fetched.error) console.log(fetched.error);
 else
     fetched.then(function (data) {
         console.log(
             'Match text fetch from a URL\n',
-            'Matches(' + data.length + ')',
-            '\n'
+            'Matches(' + data.length + ')'
         );
     });
