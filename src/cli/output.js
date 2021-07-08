@@ -22,11 +22,12 @@ module.exports = function (what, input, timer) {
             header = header + 'Took: ' + (Date.now() - timer) + 'ms';
 
             console.log('\x1b[36m%s\x1b[0m', header);
-            if (table.options != null) {
-                console.log(table.toString());
-            } else {
-                console.table(table);
-            }
+            console.table(table, [
+                'Matched at',
+                'Identified as',
+                'Description',
+                'URL',
+            ]);
             if (total > 25) {
                 return console.log('\x1b[36m%s\x1b[0m', header);
             }
