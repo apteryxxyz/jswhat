@@ -1,13 +1,14 @@
 const what = require('../');
-const url = what.url;
 
 test('Is URL', function () {
     const path = 'https://data.iana.org/TLD/tlds-alpha-by-domain.txt';
-    expect(url.isURL(path)).toBe(true);
-})
+    expect(what.isURL(path)).toBe(true);
+});
 
-test('Fetch URL', async function () {
+test('Fetch URL', function () {
     const path = 'https://data.iana.org/TLD/tlds-alpha-by-domain.txt';
-    const content = await url.fetchURL(path);
-    expect(content[0]).toBe('#');
-})
+    if (what.fetch == null) throw new Error('[jswhat] Fetch is not supported');
+    return what.fetch(path).then(function (content) {
+        expect(content[0]).toBe('#');
+    });
+});

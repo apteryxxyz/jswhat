@@ -1,14 +1,13 @@
 const what = require('../');
-const file = what.file;
-const { resolve } = require('path');
+const resolve = require('path').resolve;
 
 test('Is File', function () {
     const path = resolve('package.json');
-    expect(file.isFile(path)).toBe(true);
-})
+    expect(what.isFile(path)).toBe(true);
+});
 
 test('Read File', function () {
     const path = resolve('package.json');
-    const content = file.readFile(path);
+    const content = what.read(path);
     expect(content[0]).toBe('{');
-})
+});
