@@ -1,0 +1,73 @@
+[
+    {
+        "name": "YouTube Channel ID",
+        "short": "YouTube Channel ID",
+        "category": "Social Media",
+        "description": "",
+        "rarity": 0.5,
+        "url": "https://www.youtube.com/channel/{0}",
+        "regex": "(?:UC[0-9A-Za-z_-]{21}[AQgw]{1})",
+        "flags": "",
+        "tests": [
+            "UCjXfkj5iapKHJrhYfAF9ZGg"
+        ],
+        "tags": [
+            "Channel",
+            "Media",
+            "YouTube"
+        ]
+    },
+    {
+        "name": "YouTube Channel URL",
+        "short": "YouTube Channel",
+        "category": "Social Media",
+        "description": "",
+        "rarity": 0.5,
+        "url": "{0}",
+        "regex": "(?:(https?://)?((www|m)\\.)?(youtube\\.com)(/(c/|channel/|user/)?)([0-9A-Za-z_-]{1,}))",
+        "flags": "i",
+        "tests": [],
+        "tags": [
+            "Channel",
+            "Media",
+            "YouTube"
+        ]
+    },
+    {
+        "name": "YouTube Video ID",
+        "short": "YouTube Video ID",
+        "category": "Social Media",
+        "description": "",
+        "rarity": 0,
+        "url": "https://www.youtube.com/watch?v={0}",
+        "regex": "(?:[0-9A-Za-z_-]{10}[048AEIMQUYcgkosw]{1})",
+        "flags": "",
+        "tests": [
+            "dQw4w9WgXcQ"
+        ],
+        "tags": [
+            "Media",
+            "Video",
+            "YouTube"
+        ]
+    },
+    {
+        "name": "YouTube Video URL",
+        "short": "YouTube Video",
+        "category": "Social Media",
+        "description": "",
+        "rarity": 1,
+        "url": "{0}",
+        "regex": "(?:(https?://)?(youtu\\.be/|(www\\.|m\\.)?youtube\\.com/(watch|v|embed)(\\.php)?(\\?.*v=|/))([a-zA-Z0-9\\_-]+))",
+        "flags": "i",
+        "tests": [
+            "http://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            "https://www.youtube.com/watch?v=ScOAntcCa78"
+        ],
+        "tags": [
+            "Media",
+            "Video",
+            "YouTube"
+        ]
+    }
+]

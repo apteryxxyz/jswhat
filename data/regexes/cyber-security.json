@@ -1,0 +1,50 @@
+[
+    {
+        "name": "Capture The Flag (CTF) Flag",
+        "short": "Capture The Flag",
+        "category": "Cyber Security",
+        "description": "",
+        "rarity": 1,
+        "url": "",
+        "regex": "(?:flag{.*}|ctf{.*}|ctfa{.*})",
+        "flags": "i",
+        "tests": [
+            "FLAG{hello}"
+        ],
+        "tags": [
+            "Cyber Security"
+        ]
+    },
+    {
+        "name": "HackTheBox Flag Format",
+        "short": "HackTheBox",
+        "category": "Cyber Security",
+        "description": "Used for Capture The Flags at https://hackthebox.eu",
+        "rarity": 1,
+        "url": "",
+        "regex": "(?:hackthebox{.*}|htb{.*})",
+        "flags": "i",
+        "tests": [
+            "htb{just_a_test}"
+        ],
+        "tags": [
+            "Cyber Security"
+        ]
+    },
+    {
+        "name": "TryHackMe Flag Format",
+        "short": "TryHackMe",
+        "category": "Cyber Security",
+        "description": "Used for Capture The Flags at https://tryhackme.com",
+        "rarity": 1,
+        "url": "",
+        "regex": "(?:thm{.*}|tryhackme{.*})",
+        "flags": "i",
+        "tests": [
+            "thm{hello}"
+        ],
+        "tags": [
+            "Cyber Security"
+        ]
+    }
+]

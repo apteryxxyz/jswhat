@@ -1,0 +1,172 @@
+[
+    {
+        "name": "Access-Control-Allow-Header",
+        "short": "Access-Control-Allow-Header",
+        "category": "Identifiers",
+        "description": "Used for Cross-Origin Resource Sharing (CORS)",
+        "rarity": 1,
+        "url": "",
+        "regex": "(?:Access-Control-Allow(-Headers)?: ([a-z0-9-,* ]+))",
+        "flags": "i",
+        "tests": [
+            "Access-Control-Allow: *"
+        ],
+        "tags": [
+            "Networking",
+            "Website"
+        ]
+    },
+    {
+        "name": "Amazon Web Services Simple Storage (AWS S3) Internal URL",
+        "short": "AWS S3 Internal URL",
+        "category": "Identifiers",
+        "description": "Internal URL, only accessible via the virtual private cloud.",
+        "rarity": 1,
+        "url": "",
+        "regex": "(?:s3://([^/]+)/(.*?([^/]+)/?))",
+        "flags": "i",
+        "tests": [
+            "s3://bucket/path/directory/",
+            "s3://bucket/path/key"
+        ],
+        "tags": [
+            "Amazon",
+            "AWS",
+            "Internet",
+            "Networking"
+        ]
+    },
+    {
+        "name": "Amazon Web Services Simple Storage (AWS S3) URL",
+        "short": "AWS S3 URL",
+        "category": "Identifiers",
+        "description": "",
+        "rarity": 1,
+        "url": "",
+        "regex": "(?:[https://]*s3\\.amazonaws.com[/]+.*$|[a-zA-Z0-9_-]*\\.s3\\.amazonaws.com/.*)",
+        "flags": "i",
+        "tests": [
+            "http://s3.amazonaws.com/bucket"
+        ],
+        "tags": [
+            "Amazon",
+            "AWS",
+            "Internet",
+            "Networking"
+        ]
+    },
+    {
+        "name": "Hex Colour Value",
+        "short": "Hex Colour",
+        "category": "Identifiers",
+        "description": "",
+        "rarity": 0,
+        "url": "https://www.color-hex.com/color/{1}",
+        "regex": "(?:#([a-fA-F0-9]{6}|[a-fA-F0-9]{3}))",
+        "flags": "",
+        "tests": [],
+        "tags": [
+            "Hex Color Value",
+            "Hex Color",
+            "Colour",
+            "Color",
+            "Website"
+        ]
+    },
+    {
+        "name": "Latitude & Longitude Coordinates",
+        "short": "Coordinates",
+        "category": "Identifiers",
+        "description": "",
+        "rarity": 0.7,
+        "url": "https://www.google.com/maps/place/{0}",
+        "regex": "(?:(?:(?:N|W|S|E)\\s?\\d+\\s?\\u00B0?\\s?\\d+\\.?\\d*\\s?\\'?\\s?\\d*\\.?\\,?\\d*?\"?\\s?){1,2}|(?:\\d+\\s?\\u00B0\\s?\\d+\\s?\\'\\s?\\d+\\.?\\,?\\d{0,}?\"\\s?(?:N|W|S|E)\\s?){1,2}|(?:[-+]?(?:[0-8]?\\d+\\.\\d{4,}|90(?:\\.0+)?),\\s*[-+]?(?:180(?:\\.0+)?|(?:(?:1[0-7]\\d)|(?:[1-9]?\\d))(?:\\.\\d+)?)))",
+        "flags": "i",
+        "tests": [
+            "@13.923404,101.3395163,17z",
+            "40.741895,-73.989308",
+            "41°24'12.2\" N 2°10'26.5\" E",
+            "52.6169586, -1.9779857",
+            "53.76297,-1.9388732",
+            "77° 30' 29.9988\" N",
+            "N 32° 53.733 W 096° 48.358"
+        ],
+        "tags": [
+            "Geo-location"
+        ]
+    },
+    {
+        "name": "Recent Unix Millisecond Timestamp",
+        "short": "Recent Unix MS Timestamp",
+        "category": "Identifiers",
+        "description": "Milliseconds elapsed since unix epoch: 1970, between year 2001 and 2286",
+        "rarity": 0,
+        "url": "",
+        "regex": "(?:[0-9]{13})",
+        "flags": "",
+        "tests": [
+            "1577836800000"
+        ],
+        "tags": [
+            "UNIX",
+            "Timestamp",
+            "UNIX Timestamp"
+        ]
+    },
+    {
+        "name": "Recent Unix Timestamp",
+        "short": "Recent Unix Timestamp",
+        "category": "Identifiers",
+        "description": "Seconds elapsed since unix epoch: 1970, between year 2001 and 2286",
+        "rarity": 0,
+        "url": "",
+        "regex": "(?:[0-9]{10})",
+        "flags": "",
+        "tests": [
+            "1577836800"
+        ],
+        "tags": [
+            "UNIX",
+            "Timestamp",
+            "UNIX Timestamp"
+        ]
+    },
+    {
+        "name": "Unix Millisecond Timestamp",
+        "short": "Unix MS Timestamp",
+        "category": "Identifiers",
+        "description": "Milliseconds elapsed since unix epoch: 1970",
+        "rarity": 0,
+        "url": "",
+        "regex": "(?:[0-9]{11,13})",
+        "flags": "",
+        "tests": [
+            "1577836800000",
+            "94694400000"
+        ],
+        "tags": [
+            "UNIX",
+            "Timestamp",
+            "UNIX Timestamp"
+        ]
+    },
+    {
+        "name": "Unix Timestamp",
+        "short": "Unix Timestamp",
+        "category": "Identifiers",
+        "description": "Seconds elapsed since unix epoch: 1970",
+        "rarity": 0,
+        "url": "",
+        "regex": "(?:[0-9]{8,10})",
+        "flags": "",
+        "tests": [
+            "1577836800",
+            "94694400"
+        ],
+        "tags": [
+            "UNIX",
+            "Timestamp",
+            "UNIX Timestamp"
+        ]
+    }
+]
