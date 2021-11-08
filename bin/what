@@ -28,11 +28,11 @@ const OPTIONS = [
         description: 'Show all available tags.',
     },
     {
-        name: ['filter', 'f'], value: 'boolean',
+        name: ['filter', 'f'], value: 'string',
         description: 'Filter the results by names or tags, separate by commons.',
     },
     {
-        name: ['exclude', 'e'], value: 'boolean',
+        name: ['exclude', 'e'], value: 'string',
         description: 'Exclude results based on names and tags, separate by commons.',
     },
 ];
@@ -78,24 +78,24 @@ function handleError(error) {
                 'Based on pyWhat (https://github.com/bee-san/pyWhat)\n' +
                 '\nUsage: what <inputs> [options]\n\n' +
                 'Options:\n'}${(function _o() {
-                return (OPTIONS.map(o => {
-                    let string = ' ', count = 20 - o.name[0].length;
-                    if (o.name[1]) string += `-${o.name[1]}, `;
-                    return `${string}--${o.name[0] + repeat(' ', count) + o.description}`;
-                }).join('\n'));
-            }())
-            }\nExamples:\n${(function _e() {
-                return ([
-                    '192.168.0.2',
-                    'e@mail.com --search',
-                    'dQw4w9WgXcQ --filter=media',
-                    'path/to/file --nontext --search',
-                    'https://raw.github.com/apteryxxyz/jswhat/main/README.md -n -s',
-                    '--tags',
-                    'e@mail.com g@mail.com fakemail.com -s -f="Email Address"',
-                    'e@mail.com g@mail.com hot@mail.com mail.google.com -s -e="Email Address"',
-                ].map(e => ` * what ${e}`).join('\n'));
-            }())}\n`;
+                    return (OPTIONS.map(o => {
+                        let string = ' ', count = 20 - o.name[0].length;
+                        if (o.name[1]) string += `-${o.name[1]}, `;
+                        return `${string}--${o.name[0] + repeat(' ', count) + o.description}`;
+                    }).join('\n'));
+                }())
+                }\nExamples:\n${(function _e() {
+                    return ([
+                        '192.168.0.2',
+                        'e@mail.com --search',
+                        'dQw4w9WgXcQ --filter=media',
+                        'path/to/file --nontext --search',
+                        'https://raw.github.com/apteryxxyz/jswhat/main/README.md -n -s',
+                        '--tags',
+                        'e@mail.com g@mail.com fakemail.com -s -f="Email Address"',
+                        'e@mail.com g@mail.com hot@mail.com mail.google.com -s -e="Email Address"',
+                    ].map(e => ` * what ${e}`).join('\n'));
+                }())}\n`;
         }()));
     }
 
