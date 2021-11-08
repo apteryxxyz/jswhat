@@ -4,7 +4,7 @@ const assert = require('assert');
 (async function $() {
     const [urls, paths] = [
         ['https://data.iana.org/TLD/tlds-alpha-by-domain.txt', 'https://apteryx.xyz/', 'https://example.com'],
-        ['test/check.test.js', 'package.json', './bin/what']
+        ['test/identify.test.js', 'package.json', './bin/what']
     ];
     let tests = 0, f = 0;
 
