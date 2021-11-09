@@ -16,28 +16,28 @@ const OPTIONS = [
         description: 'Show help message.',
     },
     {
-        name: ['search', 's'], value: 'boolean',
-        description: 'Show the installed version of jsWhat.',
-    },
-    {
         name: ['non-text', 'n'], value: 'boolean',
         description: 'The text input(s) should be treated as file paths or URLs.',
     },
     {
-        name: ['tags', 't'], value: 'boolean',
-        description: 'Show all available tags.',
+        name: ['search', 's'], value: 'boolean',
+        description: 'Show the installed version of jsWhat.',
     },
     {
-        name: ['filter', 'f'], value: str => str.split(',').map(s => s.trim()),
+        name: ['rarity', ''], value: str => str.split(',').slice(0, 2).map(Number),
+        description: 'Filter the results by rarity, one or two numbers searate by commas.',
+    },
+    {
+        name: ['filter', ''], value: str => str.split(',').map(s => s.trim()),
         description: 'Filter the results by names or tags, separate by commas.',
     },
     {
-        name: ['exclude', 'e'], value: str => str.split(',').map(s => s.trim()),
+        name: ['exclude', ''], value: str => str.split(',').map(s => s.trim()),
         description: 'Exclude results based on names and tags, separate by commas.',
     },
     {
-        name: ['rarity', 'r'], value: str => str.split(',').slice(0, 2).map(Number),
-        description: 'Filter the results by rarity, one or two numbers searate by commas.',
+        name: ['tags', 't'], value: 'boolean',
+        description: 'Show all available tags.',
     },
 ];
 
@@ -87,7 +87,7 @@ function handleError(error) {
     const repeat = (s, c) => new Array(c + 1).join(s);
 
     if (options.version) return console.log(what.version);
-    if (options.tags) return console.log(what.check.regexes.map(r => r.tags).flat().join(', '));
+    if (options.tags) return console.log(what.identify.regexes.map(r => r.tags).flat().join(', '));
 
     if (!inputs.length || options.help) {
         return console.log((function _() {
@@ -97,18 +97,21 @@ function handleError(error) {
                 '\nUsage: what <inputs> [options]\n\n' +
                 'Options:\n'}${OPTIONS.map(o => {
                 let string = ' ', count = 20 - o.name[0].length;
-                if (o.name[1]) string += `-${o.name[1]}, `;
+                if (o.name[1]) {
+                    string += `-${o.name[1]}, `;
+                    count -= 4;
+                }
                 return `${string}--${o.name[0] + repeat(' ', count) + o.description}`;
             }).join('\n')
-            }\nExamples:\n${[
+            }\n\nExamples:\n${[
                 '192.168.0.2',
                 'e@mail.com --search',
                 'dQw4w9WgXcQ --filter=media',
                 'path/to/file --nontext --search',
-                'https://raw.github.com/apteryxxyz/jswhat/main/README.md -n -s',
+                'https://raw.github.com/apteryxxyz/jswhat/main/README.md -ns',
                 '--tags',
-                'e@mail.com g@mail.com fakemail.com -s -f="Email Address"',
-                'e@mail.com g@mail.com hot@mail.com mail.google.com -s -e="Email Address"',
+                'e@mail.com g@mail.com fakemail.com -s --filter="Email Address"',
+                'e@mail.com g@mail.com hot@mail.com mail.google.com -s --exclude="Email"',
             ].map(e => ` * what ${e}`).join('\n')
             }\n`;
         }()));
