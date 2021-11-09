@@ -11,14 +11,12 @@ const namesToIgnore = ['YouTube Video'];
     return fetch('https://raw.githubusercontent.com/bee-san/pyWhat/main/pywhat/Data/regex.json')
         .then(res => res.json())
         .then(eRegexes => {
-            // Sync local variables with external variables
             const currentNames = allRegexes.map(r => r.name);
             const externalNames = eRegexes.map(r => r.name);
 
             if (externalNames.some(n => !currentNames.includes(n))) {
                 const missingRegexes = eRegexes
-                    .filter(r => !currentNames.includes(r.Name) && !namesToIgnore.includes(r.Name))
-                    .map(r => r.name);
+                    .filter(r => !currentNames.includes(r.Name) && !namesToIgnore.includes(r.Name));
                 fs.writeFileSync(path.resolve(__dirname, '../data/to-add.json'),
                     JSON.stringify(missingRegexes, null, 4));
                 console.log('\x1b[33m%s\x1b[0m',
