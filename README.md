@@ -89,8 +89,8 @@ Once installed globally, you will gain access to the `what` command. You can use
  -s, --search               Search globally within a string.
  -r, --rarity               Filter the results by rarity, one or two numbers searate by commas.
  -n, --non-text             The text input is a file path or URL.
- -f, --filter               Filter the results by names or tags, separate by commons.
- -e, --exclude              Exclude results based on names and tags, separate by commons.
+ -f, --filter               Filter the results by names or tags, separate by commas.
+ -e, --exclude              Exclude results based on names and tags, separate by commas.
  -t, --tags                 Show all the available tags.
 ```
 
