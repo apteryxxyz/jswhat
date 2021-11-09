@@ -16,7 +16,7 @@ const assert = require('assert');
             assert.equal(typeof what.url(url)?.fetch, 'function');
         } catch (_) {
             f++;
-            console.log('\x1b[31m%s\x1b[0m', `URL failed test on ${url}`);
+            console.error('\x1b[31m%s\x1b[0m', `URL failed test on ${url}`);
             break;
         }
 
@@ -26,7 +26,7 @@ const assert = require('assert');
             assert.equal(typeof data === 'string' && data.length > 0, true);
         } catch (_) {
             f++;
-            console.log('\x1b[31m%s\x1b[0m', `URL failed fetch test on ${url}`);
+            console.error('\x1b[31m%s\x1b[0m', `URL failed fetch test on ${url}`);
             break;
         }
     }
@@ -39,7 +39,7 @@ const assert = require('assert');
             assert.equal(typeof what.path(path)?.read, 'function');
         } catch (_) {
             f++;
-            console.log('\x1b[31m%s\x1b[0m', `Path failed test on ${path}`);
+            console.error('\x1b[31m%s\x1b[0m', `Path failed test on ${path}`);
             break;
         }
 
@@ -49,10 +49,14 @@ const assert = require('assert');
             assert.equal(typeof data === 'string' && data.length > 0, true);
         } catch (_) {
             f++;
-            console.log('\x1b[31m%s\x1b[0m', `Path failed read test on ${path}`);
+            console.error('\x1b[31m%s\x1b[0m', `Path failed read test on ${path}`);
             break;
         }
     }
 
-    console.log(`\n${tests - f}/${tests} 'nontext' tests passed`);
+    if (f === 0) console.log('\x1b[32m%s\x1b[0m', `\nAll ${tests} nontext tests have passed!`);
+    else {
+        console.error('\x1b[31m%s\x1b[0m', `\n${f} out of the ${tests} nontext tests have failed!`);
+        process.exit(1);
+    }
 }());

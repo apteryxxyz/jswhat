@@ -12,7 +12,7 @@ const assert = require('assert');
         const regex = regexes[i];
 
         if (regex.tests.length === 0) {
-            console.log(`${regex.short} does not have any tests`);
+            console.warn(`${regex.short} does not have any tests`);
             continue;
         } else {
             for (let j = 0; j < regex.tests.length; j++) {
@@ -23,7 +23,7 @@ const assert = require('assert');
                     assert.equal(result.names.includes(regex.name), true);
                     // console.log('\x1b[32m%s\x1b[0m', `${regex.short} passed on test ${j}`);
                 } catch (err) {
-                    console.log('\x1b[31m%s\x1b[0m', `${regex.short} failed on test ${j}`);
+                    console.error('\x1b[31m%s\x1b[0m', `${regex.short} failed on test ${j}`);
                     f++;
                 }
             }
@@ -31,5 +31,9 @@ const assert = require('assert');
         }
     }
 
-    console.log(`\n${tests - f}/${tests} 'check' tests passed`);
+    if (f === 0) console.log('\x1b[32m%s\x1b[0m', `\nAll ${tests} identify tests have passed!`);
+    else {
+        console.error('\x1b[31m%s\x1b[0m', `\n${f} out of the ${tests} identify tests have failed!`);
+        process.exit(1);
+    }
 }());
