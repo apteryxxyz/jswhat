@@ -15,15 +15,16 @@
         "bin"
     ],
     "bin": {
-        "jswhat": "./bin/index.js"
+        "what": "./bin/what",
+        "jswhat": "./bin/what"
     },
     "scripts": {
         "test": "npm run test:identify && npm run test:nontext",
         "test:identify": "node test/identify.test.js",
         "test:nontext": "node test/nontext.test.js",
         "eslint": "eslint ./src ./scripts ./bin/what --fix",
-        "build": "npm run eslint && npm run test && npm run regexes && npm run webpack",
-        "regexes": "npm run regexes:sync && npm run regexes:format && npm run regexes:combine",
+        "build": "npm run eslint && npm run regexes && npm run test && npm run webpack",
+        "regexes": "npm run regexes:combine && npm run regexes:sync && npm run regexes:format && npm run regexes:combine",
         "regexes:format": "node scripts/format-regexes",
         "regexes:combine": "node scripts/combine-regexes",
         "regexes:sync": "node scripts/sync-regexes",
