@@ -41,21 +41,33 @@ const OPTIONS = [
     },
 ];
 
+const SHORT = /^-([^\d-]+)$/;
+const LONG = /^--(\S+)=(.*)$/;
+const REGEXES = [SHORT, LONG];
+
 function parseOptions(args) {
     const options = {};
-    const flags = args.filter(arg => arg.startsWith('-'));
+    const flags = [].concat.apply([], args.map(a => REGEXES.map(r => a.match(r)).filter(Boolean)).filter(Boolean));
 
-    for (let i = 0; i < flags.length; i++) {
-        const flag = flags[i].replace(/(--|-)/, '').split('=');
-        const option = OPTIONS.find(o => o.name.includes(flag[0]));
+    function parseOption(name, value) {
+        const option = OPTIONS.find(o => o.name.indexOf(name) !== -1);
+        if (!option) return;
 
-        if (!option) continue;
         if (option.value === 'boolean') {
             options[option.name[0]] = true;
         } else if (typeof option.value === 'function') {
-            options[option.name[0]] = option.value(flag[1] || '');
+            options[option.name[0]] = option.value(value);
         } else {
-            options[option.name[0]] = flag[1] || '';
+            options[option.name[0]] = value;
+        }
+    }
+
+    for (let i = 0; i < flags.length; i++) {
+        const flag = flags[i];
+        if (SHORT.test(flag)) {
+            flag[1].split('').forEach(f => parseOption(f, true));
+        } else if (LONG.test(flag)) {
+            parseOption(flag[1], flag[2]);
         }
     }
 
