@@ -44,7 +44,8 @@ module.exports.is = function is(input, options) {
     }
 
     let strings = [];
-    if (options.nonText) {
+    // 'non-text' is for the command line option
+    if (options.nonText || options['non-text']) {
         const links = inputs.filter(s => url(s));
         const files = inputs.filter(s => path(s));
         if (files.length > 0 && environment === 'browser') {
