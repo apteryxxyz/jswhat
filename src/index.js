@@ -22,9 +22,10 @@ Object.defineProperties(module.exports, {
 
 const defaultOptions = {
     nonText: false,
+    search: false,
+    rarity: [0, 1],
     filter: [],
     exclude: [],
-    search: false,
 };
 
 module.exports.is = function is(input, options) {

@@ -28,12 +28,16 @@ const OPTIONS = [
         description: 'Show all available tags.',
     },
     {
-        name: ['filter', 'f'], value: 'string',
-        description: 'Filter the results by names or tags, separate by commons.',
+        name: ['filter', 'f'], value: str => str.split(',').map(s => s.trim()),
+        description: 'Filter the results by names or tags, separate by commas.',
     },
     {
-        name: ['exclude', 'e'], value: 'string',
-        description: 'Exclude results based on names and tags, separate by commons.',
+        name: ['exclude', 'e'], value: str => str.split(',').map(s => s.trim()),
+        description: 'Exclude results based on names and tags, separate by commas.',
+    },
+    {
+        name: ['rarity', 'r'], value: str => str.split(',').slice(0, 2).map(Number),
+        description: 'Filter the results by rarity, one or two numbers searate by commas.',
     },
 ];
 
@@ -48,8 +52,10 @@ function parseOptions(args) {
         if (!option) continue;
         if (option.value === 'boolean') {
             options[option.name[0]] = true;
-        } else if (option.value === 'string') {
-            options[option.name[0]] = flag[1].split(',').map(s => s.trim());
+        } else if (typeof option.value === 'function') {
+            options[option.name[0]] = option.value(flag[1] || '');
+        } else {
+            options[option.name[0]] = flag[1] || '';
         }
     }
 
@@ -74,28 +80,25 @@ function handleError(error) {
     if (!inputs.length || options.help) {
         return console.log((function _() {
             return `${'\njsWhat - Identify what something is.\n' +
-                'Made by Apteryx (https://github.com/apteryxxyz)\n' +
+                'Created by Apteryx (https://github.com/apteryxxyz)\n' +
                 'Based on pyWhat (https://github.com/bee-san/pyWhat)\n' +
                 '\nUsage: what <inputs> [options]\n\n' +
-                'Options:\n'}${(function _o() {
-                    return (OPTIONS.map(o => {
-                        let string = ' ', count = 20 - o.name[0].length;
-                        if (o.name[1]) string += `-${o.name[1]}, `;
-                        return `${string}--${o.name[0] + repeat(' ', count) + o.description}`;
-                    }).join('\n'));
-                }())
-                }\nExamples:\n${(function _e() {
-                    return ([
-                        '192.168.0.2',
-                        'e@mail.com --search',
-                        'dQw4w9WgXcQ --filter=media',
-                        'path/to/file --nontext --search',
-                        'https://raw.github.com/apteryxxyz/jswhat/main/README.md -n -s',
-                        '--tags',
-                        'e@mail.com g@mail.com fakemail.com -s -f="Email Address"',
-                        'e@mail.com g@mail.com hot@mail.com mail.google.com -s -e="Email Address"',
-                    ].map(e => ` * what ${e}`).join('\n'));
-                }())}\n`;
+                'Options:\n'}${OPTIONS.map(o => {
+                let string = ' ', count = 20 - o.name[0].length;
+                if (o.name[1]) string += `-${o.name[1]}, `;
+                return `${string}--${o.name[0] + repeat(' ', count) + o.description}`;
+            }).join('\n')
+            }\nExamples:\n${[
+                '192.168.0.2',
+                'e@mail.com --search',
+                'dQw4w9WgXcQ --filter=media',
+                'path/to/file --nontext --search',
+                'https://raw.github.com/apteryxxyz/jswhat/main/README.md -n -s',
+                '--tags',
+                'e@mail.com g@mail.com fakemail.com -s -f="Email Address"',
+                'e@mail.com g@mail.com hot@mail.com mail.google.com -s -e="Email Address"',
+            ].map(e => ` * what ${e}`).join('\n')
+            }\n`;
         }()));
     }
 

@@ -1,13 +1,7 @@
 const phoneCodes = require('../data/phone-codes.json');
 const regexes = require('../data/regexes.json');
 
-const defaultOptions = {
-    exclude: [],
-    filter: [],
-    search: false,
-};
-
-module.exports = function $(inputs, options = defaultOptions) {
+module.exports = function $(inputs, options = {}) {
     const timer = Date.now();
     const strings = [inputs].flat();
 
@@ -16,7 +10,6 @@ module.exports = function $(inputs, options = defaultOptions) {
         throw new Error('Invalid \'inputs\', must be an array of strings');
     }
 
-    options = Object.assign({}, defaultOptions, options);
     // Verify options are valid
     if (!Array.isArray(options.exclude) || options.exclude.some(x => typeof x !== 'string')) {
         throw new TypeError('Invalid \'options.exclude\', must be an array of strings');
@@ -24,17 +17,28 @@ module.exports = function $(inputs, options = defaultOptions) {
         throw new TypeError('Invalid \'options.filter\', must be an array of strings');
     } else if (typeof options.search !== 'boolean') {
         throw new TypeError('Invalid \'options.search\', must be a boolean');
+    } else if (!Array.isArray(options.rarity) || options.rarity.some(x => typeof x !== 'number' || x < 0 || x > 1)) {
+        throw new TypeError('Invalid \'options.rarity\', must be an array of one or two numbers, each between 0 and 1');
     }
 
     let formattedRegexes = regexes.map(item => {
         const copy = Object.assign({}, item);
         let flags = item.flags;
         copy.boundary = `^${item.regex}$`;
+
         if (!options.search) copy.regex = copy.boundary;
         else flags += 'g';
+
+        if (options.rarity[0] !== 0 || options.rarity[1] !== 1) {
+            if (options.rarity.length === 1) options.rarity = [options.rarity[0], options.rarity[0]];
+            if (item.rarity < options.rarity[0] || item.rarity > options.rarity[1]) {
+                return null;
+            }
+        }
+
         copy.expression = new RegExp(copy.regex, flags);
         return copy;
-    });
+    }).filter(Boolean);
 
     // Filter the regexes
     if (options.filter.length > 0) {

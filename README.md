@@ -42,7 +42,7 @@ Check out a live example at [JSFiddle](https://jsfiddle.net/p4rzL10s/).
 
 - [What is what?](-#what-is-what)
 - [Installation](#-installation)
-- [Documentation](#-documentation)
+- [API](#-api)
   - [Command Line](#-command-line)
   - [Node](#-node)
   - [Browser](#-browser)
@@ -84,13 +84,14 @@ Once installed globally, you will gain access to the `what` command. You can use
 ### Options
 
 ```
- -h, --help                Show help message.
- -v, --version             Show the installed version of jsWhat.
- -s, --search              Search globally within a string.
- -n, --non-text            The text input is a file path or URL.
- -f, --filter              Filter the results by names or tags, separate by commons.
- -e, --exclude             Exclude results based on names and tags, separate by commons.
- -t, --tags                Show all the available tags.
+ -h, --help                 Show help message.
+ -v, --version              Show the installed version of jsWhat.
+ -s, --search               Search globally within a string.
+ -r, --rarity               Filter the results by rarity, one or two numbers searate by commas.
+ -n, --non-text             The text input is a file path or URL.
+ -f, --filter               Filter the results by names or tags, separate by commons.
+ -e, --exclude              Exclude results based on names and tags, separate by commons.
+ -t, --tags                 Show all the available tags.
 ```
 
 ### Inputs
@@ -107,11 +108,18 @@ The `non-text` is required to ensure you are meaning to read a file or fetch a U
 
 The node module is very simple to use, containing only a single method.
 
+```js
+const what = require('jswhat');
+// OR
+import what from 'jswhat';
+```
+
 `<what>.is(<inputs> [, options])`
 
 - `<inputs> {string|string[]}` The text to be identified.
-- `[options.search] {boolean}` Search the inputs globally.
 - `[options.nonText] {boolean}` Whether the inputs should be treated as file paths/URLs.
+- `[options.search] {boolean}` Search the inputs globally.
+- `[options.rarity] {number[]}` Filter the results by rarity.
 - `[options.filter] {string[]}` Names or tags to filter results by.
 - `[options.exclude] {string[]}` Names or tags to exclude from the results.
 
@@ -125,11 +133,12 @@ The above method returns an array containing objects. The format is as follows:
         "short": String, // A short name for what it was identified as
         "description": String, // A description of what was identified
         "url": String, // A URL, sometimes linking to somewhere with more information
-        "rarity": String,
+        "rarity": Number, // The rarity of this match, a number between 0 and 1
         "regex": RegExp, // The expression that was used to identify the matched
         "tags": Array<String>, // Array of tags for the identified
     },
     ...,
+    time: Number, // The amount of time this took in milliseconds
     matched: Array<String>, // A shorthand for `<matched>.map(m => m.matched)`
     names: Array<String>, // Shorthand for `<matched>.map(m => m.name)`
     short: Array<String>, // A shorthand for `<matched>.map(m => m.short)`
@@ -140,8 +149,9 @@ The above method returns an array containing objects. The format is as follows:
 ## 📺 Browser
 
 `jsWhat` works in the exact same way in the browser as in Node, although without the ability to read a file.
-View the [Node section](#-node) for usage and options.
 
 ```html
 <script src="https://unpkg.com/jswhat@2.0.0/dist/what.js"></script>
 ```
+
+View the [Node section](#-node) for usage and options.
