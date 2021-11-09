@@ -8,11 +8,11 @@ function rk(r) {
         name: r.name,
         short: r.short,
         category: r.category,
-        description: r.description,
+        description: r.description || '',
         rarity: r.rarity,
-        url: r.url,
+        url: r.url || '',
         regex: !r.regex.endsWith(')') ? `(?:${r.regex})` : r.regex,
-        flags: r.flags,
+        flags: r.flags || '',
         tests: [r.test ?? r.tests].flat().filter(Boolean),
         tags: [r.tags].flat(),
     };
@@ -24,9 +24,10 @@ function rk(r) {
         const regexPath = path.resolve(__dirname, '../data/regexes', file);
         const regexes = require(regexPath).map(rk);
 
+        const category = regexes.find(r => r.category).category;
         const sorted = regexes
             .sort((a, b) => a.name.localeCompare(b.name))
-            .map(r => ({ ...r, tests: r.tests.sort((a, b) => a.localeCompare(b)) }));
+            .map(r => ({ ...r, category, tests: r.tests.sort((a, b) => a.localeCompare(b)) }));
         const string = JSON.stringify(sorted, null, 4);
         fs.writeFileSync(regexPath, string);
     }
