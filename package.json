@@ -13,7 +13,7 @@
         "dist"
     ],
     "bin": {
-        "what": "./build/bin/what.js"
+        "what": "./dist/what.js"
     },
     "packageManager": "yarn@3.2.1",
     "scripts": {

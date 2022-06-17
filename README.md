@@ -69,7 +69,7 @@ pnpm add jswhat
 ### Browser
 
 ```html
-<script src="https://unpkg.com/jswhat@2.0.0/dist/what.js"></script>
+<script src="https://unpkg.com/jswhat@2.0.0/dist/index.js"></script>
 ```
 
 # 🍕 API
@@ -140,7 +140,7 @@ The above method returns an array containing objects in the format of:
 `jsWhat` works in the exact same way in the browser as in Node.
 
 ```html
-<script src="https://unpkg.com/jswhat@2.0.0/dist/what.js"></script>
+<script src="https://unpkg.com/jswhat@2.0.0/dist/index.js"></script>
 ```
 
 View the [Node section](#-node) for usage and options.
