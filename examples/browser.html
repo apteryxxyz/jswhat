@@ -8,14 +8,14 @@
 
         <script src="../dist/index.js"></script>
         <script>
-            async function whatIsThis() {
+            function whatIsThis() {
                 const results = document.getElementById('results');
                 const textbox = document.getElementById('textbox');
 
                 const text = textbox.value;
                 results.innerHTML = '';
 
-                const result = await what.is(text);
+                const result = what.is(text);
                 const mapped = result.map((m) => {
                     return [
                         `Identified as: ${m.name}`,
