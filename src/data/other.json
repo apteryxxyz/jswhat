@@ -8,13 +8,8 @@
         "url": "",
         "regex": "(?:Access-Control-Allow(-Headers)?: ([a-z0-9-,* ]+))",
         "flags": "i",
-        "tests": [
-            "Access-Control-Allow: *"
-        ],
-        "tags": [
-            "Networking",
-            "Website"
-        ]
+        "tests": ["Access-Control-Allow: *"],
+        "tags": ["Networking", "Website"]
     },
     {
         "name": "Amazon Web Services Simple Storage (AWS S3) Internal URL",
@@ -25,16 +20,8 @@
         "url": "",
         "regex": "(?:s3://([^/]+)/(.*?([^/]+)/?))",
         "flags": "i",
-        "tests": [
-            "s3://bucket/path/directory/",
-            "s3://bucket/path/key"
-        ],
-        "tags": [
-            "Amazon",
-            "AWS",
-            "Internet",
-            "Networking"
-        ]
+        "tests": ["s3://bucket/path/directory/", "s3://bucket/path/key"],
+        "tags": ["Amazon", "AWS", "Internet", "Networking"]
     },
     {
         "name": "Amazon Web Services Simple Storage (AWS S3) URL",
@@ -45,15 +32,8 @@
         "url": "",
         "regex": "(?:[https://]*s3\\.amazonaws.com[/]+.*$|[a-zA-Z0-9_-]*\\.s3\\.amazonaws.com/.*)",
         "flags": "i",
-        "tests": [
-            "http://s3.amazonaws.com/bucket"
-        ],
-        "tags": [
-            "Amazon",
-            "AWS",
-            "Internet",
-            "Networking"
-        ]
+        "tests": ["http://s3.amazonaws.com/bucket"],
+        "tags": ["Amazon", "AWS", "Internet", "Networking"]
     },
     {
         "name": "Hex Colour Value",
@@ -65,13 +45,7 @@
         "regex": "(?:#([a-fA-F0-9]{6}|[a-fA-F0-9]{3}))",
         "flags": "",
         "tests": [],
-        "tags": [
-            "Hex Color Value",
-            "Hex Color",
-            "Colour",
-            "Color",
-            "Website"
-        ]
+        "tags": ["Hex Color Value", "Hex Color", "Colour", "Color", "Website"]
     },
     {
         "name": "Latitude & Longitude Coordinates",
@@ -91,9 +65,7 @@
             "77° 30' 29.9988\" N",
             "N 32° 53.733 W 096° 48.358"
         ],
-        "tags": [
-            "Geo-location"
-        ]
+        "tags": ["Geo-location"]
     },
     {
         "name": "Recent Unix Millisecond Timestamp",
@@ -104,14 +76,8 @@
         "url": "",
         "regex": "(?:[0-9]{13})",
         "flags": "",
-        "tests": [
-            "1577836800000"
-        ],
-        "tags": [
-            "UNIX",
-            "Timestamp",
-            "UNIX Timestamp"
-        ]
+        "tests": ["1577836800000"],
+        "tags": ["UNIX", "Timestamp", "UNIX Timestamp"]
     },
     {
         "name": "Recent Unix Timestamp",
@@ -122,14 +88,8 @@
         "url": "",
         "regex": "(?:[0-9]{10})",
         "flags": "",
-        "tests": [
-            "1577836800"
-        ],
-        "tags": [
-            "UNIX",
-            "Timestamp",
-            "UNIX Timestamp"
-        ]
+        "tests": ["1577836800"],
+        "tags": ["UNIX", "Timestamp", "UNIX Timestamp"]
     },
     {
         "name": "Unix Millisecond Timestamp",
@@ -140,15 +100,8 @@
         "url": "",
         "regex": "(?:[0-9]{11,13})",
         "flags": "",
-        "tests": [
-            "1577836800000",
-            "94694400000"
-        ],
-        "tags": [
-            "UNIX",
-            "Timestamp",
-            "UNIX Timestamp"
-        ]
+        "tests": ["1577836800000", "94694400000"],
+        "tags": ["UNIX", "Timestamp", "UNIX Timestamp"]
     },
     {
         "name": "Unix Timestamp",
@@ -159,14 +112,7 @@
         "url": "",
         "regex": "(?:[0-9]{8,10})",
         "flags": "",
-        "tests": [
-            "1577836800",
-            "94694400"
-        ],
-        "tags": [
-            "UNIX",
-            "Timestamp",
-            "UNIX Timestamp"
-        ]
+        "tests": ["1577836800", "94694400"],
+        "tags": ["UNIX", "Timestamp", "UNIX Timestamp"]
     }
 ]

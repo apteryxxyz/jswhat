@@ -8,12 +8,8 @@
         "url": "",
         "regex": "(?:flag{.*}|ctf{.*}|ctfa{.*})",
         "flags": "i",
-        "tests": [
-            "FLAG{hello}"
-        ],
-        "tags": [
-            "Cyber Security"
-        ]
+        "tests": ["FLAG{hello}"],
+        "tags": ["Cyber Security"]
     },
     {
         "name": "HackTheBox Flag Format",
@@ -24,12 +20,8 @@
         "url": "",
         "regex": "(?:hackthebox{.*}|htb{.*})",
         "flags": "i",
-        "tests": [
-            "htb{just_a_test}"
-        ],
-        "tags": [
-            "Cyber Security"
-        ]
+        "tests": ["htb{just_a_test}"],
+        "tags": ["Cyber Security"]
     },
     {
         "name": "TryHackMe Flag Format",
@@ -40,11 +32,7 @@
         "url": "",
         "regex": "(?:thm{.*}|tryhackme{.*})",
         "flags": "i",
-        "tests": [
-            "thm{hello}"
-        ],
-        "tags": [
-            "Cyber Security"
-        ]
+        "tests": ["thm{hello}"],
+        "tags": ["Cyber Security"]
     }
 ]

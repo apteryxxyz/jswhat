@@ -1,39 +1,36 @@
 'use strict';
 
-const what = require('../dist/what.js');
-const regexes = require('../data/regexes.json');
-const tests = regexes.reduce((a, b) => a + b.tests.length, 0);
-const assert = require('assert');
+const { is, Regexes } = require('../');
+const assert = require('node:assert');
+const testCount = Regexes.reduce((a, b) => a + b.tests.length, 0);
 
-(function $() {
-    let f = 0;
+(function _() {
+    let failCount = 0;
 
-    for (let i = 0; i < regexes.length; i++) {
-        const regex = regexes[i];
-
+    for (const regex of Regexes) {
         if (regex.tests.length === 0) {
             console.warn(`${regex.short} does not have any tests`);
             continue;
-        } else {
-            for (let j = 0; j < regex.tests.length; j++) {
-                const test = regex.tests[j];
-                const result = what.is(test, { search: true, filter: [regex.name] });
+        }
 
-                try {
-                    assert.equal(result.names.includes(regex.name), true);
-                    // console.log('\x1b[32m%s\x1b[0m', `${regex.short} passed on test ${j}`);
-                } catch (err) {
-                    console.error('\x1b[31m%s\x1b[0m', `${regex.short} failed on test ${j}`);
-                    f++;
-                }
+        for (const test of regex.tests) {
+            const index = regex.tests.indexOf(test);
+            const result = is(test, { search: true, filter: [regex.name] });
+
+            try {
+                const names = result.map((r) => r.name);
+                assert.equal(names.includes(regex.name), true);
+            } catch (err) {
+                console.error('\x1b[31m%s\x1b[0m', `${regex.short} failed on test ${index}`);
+                failCount++;
             }
-
         }
     }
 
-    if (f === 0) console.log('\x1b[32m%s\x1b[0m', `\nAll ${tests} identify tests have passed!`);
-    else {
-        console.error('\x1b[31m%s\x1b[0m', `\n${f} out of the ${tests} identify tests have failed!`);
+    if (failCount === 0) {
+        console.log('\x1b[32m%s\x1b[0m', `\nAll ${testCount} identify tests have passed!`);
+    } else {
+        console.error('\x1b[31m%s\x1b[0m', `\n${failCount} out of the ${testCount} identify tests have failed!`);
         process.exit(1);
     }
-}());
+})();

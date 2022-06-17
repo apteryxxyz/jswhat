@@ -1,35 +1,29 @@
 {
     "name": "jswhat",
-    "version": "2.0.0-dev",
+    "version": "2.0.0",
     "license": "MIT",
-    "description": "",
+    "description": "Identify anything from email addresses and IPs to crypto wallets. Works in Node, the browser and the command line",
     "homepage": "https://github.com/apteryxxyz/jswhat",
     "author": {
         "name": "ApteryxXYZ",
-        "email": "kiaora@apteryx.xyz",
         "url": "https://apteryx.xyz/"
     },
-    "main": "./dist/what.js",
+    "main": "./dist/index.js",
     "files": [
-        "dist",
-        "bin"
+        "dist"
     ],
     "bin": {
-        "what": "./bin/what",
-        "jswhat": "./bin/what"
+        "what": "./build/bin/what.js"
     },
+    "packageManager": "yarn@3.2.1",
     "scripts": {
-        "test": "npm run test:identify && npm run test:nontext",
-        "test:identify": "node test/identify.test.js",
-        "test:nontext": "node test/nontext.test.js",
-        "eslint": "eslint ./src ./scripts ./bin/what --fix",
-        "build": "npm run eslint && npm run regexes && npm run test && npm run webpack",
-        "regexes": "npm run regexes:combine && npm run regexes:sync && npm run regexes:format && npm run regexes:combine",
-        "regexes:format": "node scripts/format-regexes",
-        "regexes:combine": "node scripts/combine-regexes",
-        "regexes:sync": "node scripts/sync-regexes",
-        "webpack": "webpack --config webpack.config.js",
-        "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
+        "clean": "rm -rf dist temp",
+        "lint": "eslint {src,bin} --fix",
+        "format": "prettier src bin --write",
+        "test": "node test/identify.test",
+        "prebuild": "tsc -p tsconfig.json && webpack --config webpack.config.js",
+        "build": "yarn prebuild && yarn postbuild",
+        "postbuild": "cp temp/bin/what.js dist/what.js && node scripts/replaceBinPaths && rm -rf temp"
     },
     "repository": {
         "type": "git",
@@ -49,16 +43,22 @@
         "regex"
     ],
     "devDependencies": {
-        "@babel/core": "^7.16.0",
-        "@babel/preset-env": "^7.16.0",
-        "babel-loader": "^8.2.3",
-        "conventional-changelog-cli": "^2.1.1",
-        "eslint": "^8.2.0",
-        "eslint-config-prettier": "^8.3.0",
+        "@babel/core": "^7.18.5",
+        "@babel/preset-env": "^7.18.2",
+        "@sapphire/eslint-config": "^4.3.7",
+        "@types/axios": "^0.14.0",
+        "@types/node": "^17.0.34",
+        "@types/web": "^0.0.67",
+        "apteryx-eslint-config": "^1.0.0",
+        "apteryx-prettier-config": "^1.0.0",
+        "babel-loader": "^8.2.5",
+        "bundle-declarations-webpack-plugin": "^3.1.0",
+        "eslint": "^8.17.0",
+        "eslint-config-prettier": "^8.5.0",
         "eslint-plugin-prettier": "^4.0.0",
-        "node-fetch": "2.6.5",
-        "prettier": "^2.4.1",
-        "webpack": "^5.62.1",
-        "webpack-cli": "^4.9.1"
+        "prettier": "^2.7.0",
+        "tslib": "^2.4.0",
+        "webpack": "^5.73.0",
+        "webpack-cli": "^4.10.0"
     }
 }

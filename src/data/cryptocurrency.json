@@ -13,11 +13,7 @@
             "3EmUH8Uh9EXE7axgyAeBsCc2vdUdKkDqWK",
             "bc1qj89046x7zv6pm4n00qgqp505nvljnfp6xfznyw"
         ],
-        "tags": [
-            "Cryptocurrency",
-            "Cryptocurrency Wallet",
-            "Finance"
-        ]
+        "tags": ["Cryptocurrency", "Cryptocurrency Wallet", "Finance"]
     },
     {
         "name": "Bitcoin Cash (BCH) Wallet Address",
@@ -28,14 +24,8 @@
         "url": "https://www.blockchain.com/bch/address/{0}",
         "regex": "(?:bitcoincash:[a-zA-Z0-9]{42})",
         "flags": "",
-        "tests": [
-            "bitcoincash:qzlg6uvceehgzgtz6phmvy8gtdqyt6vf359at4n3lq"
-        ],
-        "tags": [
-            "Cryptocurrency",
-            "Cryptocurrency Wallet",
-            "Finance"
-        ]
+        "tests": ["bitcoincash:qzlg6uvceehgzgtz6phmvy8gtdqyt6vf359at4n3lq"],
+        "tags": ["Cryptocurrency", "Cryptocurrency Wallet", "Finance"]
     },
     {
         "name": "Dogecoin (DOGE) Wallet Address",
@@ -46,14 +36,8 @@
         "url": "https://dogechain.info/address/{0}",
         "regex": "(?:D{1}[5-9A-HJ-NP-U]{1}[1-9A-HJ-NP-Za-km-z]{32})",
         "flags": "",
-        "tests": [
-            "DANHz6EQVoWyZ9rER56DwTXHWUxfkv9k2o"
-        ],
-        "tags": [
-            "Cryptocurrency",
-            "Cryptocurrency Wallet",
-            "Finance"
-        ]
+        "tests": ["DANHz6EQVoWyZ9rER56DwTXHWUxfkv9k2o"],
+        "tags": ["Cryptocurrency", "Cryptocurrency Wallet", "Finance"]
     },
     {
         "name": "Ethereum (ETH) Wallet Address",
@@ -64,14 +48,8 @@
         "url": "https://etherscan.io/address/{0}",
         "regex": "(?:0x[a-f0-9]{40})",
         "flags": "i",
-        "tests": [
-            "0x52908400098527886E0F7030069857D2E4169EE7"
-        ],
-        "tags": [
-            "Cryptocurrency",
-            "Cryptocurrency Wallet",
-            "Finance"
-        ]
+        "tests": ["0x52908400098527886E0F7030069857D2E4169EE7"],
+        "tags": ["Cryptocurrency", "Cryptocurrency Wallet", "Finance"]
     },
     {
         "name": "Litecoin (LTC) Wallet Address",
@@ -82,14 +60,8 @@
         "url": "https://live.blockcypher.com/ltc/address/{0}",
         "regex": "(?:(L|M)[a-zA-Z0-9]{33})",
         "flags": "",
-        "tests": [
-            "LRX8rSPVjifTxoLeoJtLf2JYdJFTQFcE7m"
-        ],
-        "tags": [
-            "Cryptocurrency",
-            "Cryptocurrency Wallet",
-            "Finance"
-        ]
+        "tests": ["LRX8rSPVjifTxoLeoJtLf2JYdJFTQFcE7m"],
+        "tags": ["Cryptocurrency", "Cryptocurrency Wallet", "Finance"]
     },
     {
         "name": "Monero (XMR) Wallet Address",
@@ -100,14 +72,8 @@
         "url": "",
         "regex": "(?:4([0-9]|[A-B])[a-zA-Z0-9]{93})",
         "flags": "",
-        "tests": [
-            "47DF8D9NwtmefhFUghynYRMqrexiZTsm48T1hhi2jZcbfcwoPbkhMrrED6zqJRfeYpXFfdaqAT3jnBEwoMwCx6BYDJ1W3ub"
-        ],
-        "tags": [
-            "Cryptocurrency",
-            "Cryptocurrency Wallet",
-            "Finance"
-        ]
+        "tests": ["47DF8D9NwtmefhFUghynYRMqrexiZTsm48T1hhi2jZcbfcwoPbkhMrrED6zqJRfeYpXFfdaqAT3jnBEwoMwCx6BYDJ1W3ub"],
+        "tags": ["Cryptocurrency", "Cryptocurrency Wallet", "Finance"]
     },
     {
         "name": "Ripple (XRP) Wallet Address",
@@ -118,13 +84,7 @@
         "url": "https://xrpscan.com/account/{0}",
         "regex": "(?:r[a-zA-Z0-9]{33})",
         "flags": "",
-        "tests": [
-            "rBPAQmwMrt7FDDPNyjwFgwSqbWZPf6SLkk"
-        ],
-        "tags": [
-            "Cryptocurrency",
-            "Cryptocurrency Wallet",
-            "Finance"
-        ]
+        "tests": ["rBPAQmwMrt7FDDPNyjwFgwSqbWZPf6SLkk"],
+        "tags": ["Cryptocurrency", "Cryptocurrency Wallet", "Finance"]
     }
 ]
