@@ -35,20 +35,22 @@ You can view some examples [here](https://github.com/apteryxxyz/jswhat/tree/main
 - [🤔 What is `what`?](#-what-is-what)
 - [🏓 Table Of Contents](#-table-of-contents)
 - [📩 Installation](#-installation)
-    - [Command line](#command-line)
+    - [Command Line](#command-line)
     - [Node](#node)
     - [Browser](#browser)
 - [🍕 API](#-api)
   - [💻 Command Line](#-command-line)
     - [Usage](#usage)
-    - [options](#options)
+    - [Options](#options)
     - [Inputs](#inputs)
   - [🟢 Node](#-node)
+    - [Usage](#usage-1)
+    - [Output](#output)
   - [📺 Browser](#-browser)
 
 # 📩 Installation
 
-### Command line
+### Command Line
 
 ```bash
 npm install jswhat --global
@@ -80,7 +82,7 @@ Once installed globally, you will gain access to the `what` command. You can use
 
 `what <inputs> [options]`
 
-### options
+### Options
 
 ```
  -h, --help      Show this help message.
@@ -99,6 +101,8 @@ When wanting to identify some basic text, just type `what <inputs>` and it will 
 
 The node module is very simple to use, containing only a single method.
 
+### Usage
+
 ```ts
 const what = require('jswhat');
 // OR
@@ -112,6 +116,8 @@ import * as what from 'jswhat';
 - `[options.rarity] {[number, number]}` Filter the results by rarity.
 - `[options.filter] {string[]}` Names or tags to filter results by.
 - `[options.exclude] {string[]}` Names or tags to exclude from the results.
+
+### Output
 
 The above method returns an array containing objects in the format of:
 
