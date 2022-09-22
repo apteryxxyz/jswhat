@@ -1,40 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>JSWhat Browser Example</title>
 
-        <script src="../dist/index.js"></script>
-        <script>
-            function whatIsThis() {
-                const results = document.getElementById('results');
-                const textbox = document.getElementById('textbox');
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSWhat Browser Example</title>
 
-                const text = textbox.value;
-                results.innerHTML = '';
+    <script src="../dist/index.js"></script>
+    <!-- <script src="https://unpkg.com/jswhat@2.0.0/dist/index.js"></script> -->
 
-                const result = what.is(text);
-                const mapped = result.map((m) => {
-                    return [
-                        `Identified as: ${m.name}`,
-                        `Matched at: ${m.matched}`,
-                        `Description: ${m.description}`,
-                        `Tags: ${m.tags.join(', ')}`,
-                    ].join('<br>');
-                });
+    <script>
+        function whatIsThis() {
+            const results = document.getElementById('results');
+            const input = document.getElementById('textbox');
+            results.innerHTML = '';
 
-                results.innerHTML = 'Results: ' + result.length + '<br><br>' + mapped.join('<br><br>');
-            }
-        </script>
-    </head>
-    <body>
-        <p>Type something into the text input below and press 'WHAT?'</p>
-        <input id="textbox" type="text" style="width: 35%" />
-        <button onclick="whatIsThis()">WHAT?</button>
-        <br />
-        <br />
-        <span id="results"> </span>
-    </body>
+            // The module will be defined as 'what'
+            const result = what.is(input.value);
+
+            const mapped = result.map((m) => {
+                return [
+                    `Identified as: ${m.name}`,
+                    `Matched at: ${m.matched}`,
+                    `Description: ${m.description}`,
+                    `Tags: ${m.tags.join(', ')}`,
+                ].join('<br>');
+            });
+
+            results.innerHTML = 'Results: ' +
+                result.length + '\n\n' +
+                mapped.join('\n\n');
+        }
+    </script>
+</head>
+
+<body>
+    <p>Type something into the text input below and press 'WHAT?!'</p>
+    <input id="textbox" type="text" style="width:35%" />
+    <button onclick="whatIsThis()">WHAT?!</button>
+    <br/><br/>
+    <span id="results" style="white-space: pre-wrap;" />
+</body>
+
 </html>

@@ -1,4 +1,5 @@
-const what = require('../');
+import what from '..';
+// import what from 'jswhat';
 
 // General usage
 const match = what.is('fake@mail.com')[0];
