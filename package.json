@@ -70,7 +70,8 @@
             "plugin:prettier/recommended",
             "apteryx",
             "apteryx/typescript"
-        ]
+        ],
+        "ignorePatterns": ["test/*", "examples/*", "scripts/*", "dist/*"]
     },
     "dependencies": {
         "apteryx-prettier-config": "^1.1.0"
