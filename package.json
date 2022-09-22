@@ -1,6 +1,6 @@
 {
     "name": "jswhat",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "license": "MIT",
     "description": "Identify anything from email addresses and IPs to crypto wallets. Works in Node, the browser and the command line",
     "homepage": "https://github.com/apteryxxyz/jswhat",

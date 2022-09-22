@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-    <a href="https://github.com/apteryxxyz/jswhat/"><img alt="jswhat version" src="https://img.shields.io/badge/version-2.0.0-red"></a>
+    <a href="https://github.com/apteryxxyz/jswhat/"><img alt="jswhat version" src="https://img.shields.io/badge/version-2.0.1-red"></a>
     <a href="https://npmjs.com/package/jswhat"><img alt="total downloads" src="https://img.shields.io/npm/dt/jswhat"></a>
     <br>
     <a href="https://github.com/apteryxxyz/jswhat/"><img alt="javascript percentage" src="https://img.shields.io/github/languages/top/apteryxxyz/jswhat"></a>
@@ -69,7 +69,7 @@ pnpm add jswhat
 ### Browser
 
 ```html
-<script src="https://unpkg.com/jswhat@2.0.0/dist/index.js"></script>
+<script src="https://unpkg.com/jswhat@2.0.1/dist/index.js"></script>
 ```
 
 # 🍕 API
@@ -140,7 +140,7 @@ The above method returns an array containing objects in the format of:
 `jsWhat` works in the exact same way in the browser as in Node.
 
 ```html
-<script src="https://unpkg.com/jswhat@2.0.0/dist/index.js"></script>
+<script src="https://unpkg.com/jswhat@2.0.1/dist/index.js"></script>
 ```
 
 View the [Node section](#-node) for usage and options.
