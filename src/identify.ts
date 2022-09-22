@@ -21,7 +21,7 @@ export const Regexes = [
 function formatRegexes(options: Options): Item[] {
     // Format the regexes based on the options
     let formattedRegexes = (Regexes as Item[])
-        .map((item) => {
+        .map(item => {
             const copy = Object.assign({}, item);
             const boundary = `^${item.regex}$`;
             let { flags } = copy;
@@ -37,17 +37,17 @@ function formatRegexes(options: Options): Item[] {
             copy.expression = new RegExp(copy.regex, flags);
             return copy;
         })
-        .filter((x) => x !== null) as Item[];
+        .filter(x => x !== null) as Item[];
 
     // Filter the regexes based on the options
     if (options.filter.length > 0) {
-        const filter = options.filter.map((x) => x.toLowerCase());
-        formattedRegexes = formattedRegexes.filter((item) => {
+        const filter = options.filter.map(x => x.toLowerCase());
+        formattedRegexes = formattedRegexes.filter(item => {
             let keep = false;
             for (let i = 0; i < filter.length && !keep; i++) {
                 keep = [item.name, item.short, item.category, item.tags]
                     .flat()
-                    .map((x) => x.toLowerCase())
+                    .map(x => x.toLowerCase())
                     .includes(filter[i]);
             }
             return keep;
@@ -56,13 +56,13 @@ function formatRegexes(options: Options): Item[] {
 
     // Exclude regexes based on the options
     if (options.exclude.length > 0) {
-        const exclude = options.exclude.map((x) => x.toLowerCase());
-        formattedRegexes = formattedRegexes.filter((item) => {
+        const exclude = options.exclude.map(x => x.toLowerCase());
+        formattedRegexes = formattedRegexes.filter(item => {
             let keep = true;
             for (let i = 0; i < exclude.length && keep; i++) {
                 keep = ![item.name, item.short, item.category, item.tags]
                     .flat()
-                    .map((x) => x.toLowerCase())
+                    .map(x => x.toLowerCase())
                     .includes(exclude[i]);
             }
             return keep;
@@ -89,7 +89,7 @@ export function identify(inputs: string[], options: Options): Match[] {
                 matched = [matches];
             } else {
                 const regex = new RegExp(identifier.regex, identifier.flags);
-                matched = matches.map((m) => m.match(regex));
+                matched = matches.map(m => m.match(regex));
             }
 
             // Loop over each of the matches
@@ -128,7 +128,9 @@ export function identify(inputs: string[], options: Options): Match[] {
                 }
 
                 // Add the boundary to the regex if it doesn't have it
-                const regex = identifier.regex.startsWith('^') ? identifier.regex : `^${identifier.regex}$`;
+                const regex = identifier.regex.startsWith('^')
+                    ? identifier.regex
+                    : `^${identifier.regex}$`;
 
                 identified.push({
                     matched: match[0],

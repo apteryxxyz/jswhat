@@ -44,7 +44,10 @@
         "url": "{0}",
         "regex": "(?:(https?://)?(youtu\\.be/|(www\\.|m\\.)?youtube\\.com/(watch|v|embed)(\\.php)?(\\?.*v=|/))([a-zA-Z0-9\\_-]+))",
         "flags": "i",
-        "tests": ["http://www.youtube.com/watch?v=dQw4w9WgXcQ", "https://www.youtube.com/watch?v=ScOAntcCa78"],
+        "tests": [
+            "http://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            "https://www.youtube.com/watch?v=ScOAntcCa78"
+        ],
         "tags": ["Media", "Video", "YouTube"]
     }
 ]

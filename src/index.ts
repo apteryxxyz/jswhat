@@ -17,16 +17,21 @@ function combineAndVerifyOptions(rawOptions: Partial<Options>): Options {
 
     if (typeof options.search !== 'boolean') {
         throw new TypeError("Invalid 'options.search', must be a boolean");
-    } else if (!Array.isArray(options.exclude) || options.exclude.some((x) => typeof x !== 'string')) {
+    } else if (
+        !Array.isArray(options.exclude) ||
+        options.exclude.some(x => typeof x !== 'string')
+    ) {
         throw new TypeError("Invalid 'options.exclude', must be an array of strings");
-    } else if (!Array.isArray(options.filter) || options.filter.some((x) => typeof x !== 'string')) {
+    } else if (!Array.isArray(options.filter) || options.filter.some(x => typeof x !== 'string')) {
         throw new TypeError("Invalid 'options.filter', must be an array of strings");
     } else if (
         !Array.isArray(options.rarity) ||
-        options.rarity.some((x) => typeof x !== 'number' || x < 0 || x > 1) ||
+        options.rarity.some(x => typeof x !== 'number' || x < 0 || x > 1) ||
         options.rarity[0] > options.rarity[1]
     ) {
-        throw new TypeError("Invalid 'options.rarity', must be an array of two numbers, from 0 and 1");
+        throw new TypeError(
+            "Invalid 'options.rarity', must be an array of two numbers, from 0 and 1"
+        );
     }
 
     return options;
@@ -39,7 +44,7 @@ function combineAndVerifyOptions(rawOptions: Partial<Options>): Options {
  */
 export function is(input: string | string[], options: Partial<Options> = {}): Match[] {
     const inputs = [input].flat();
-    if (inputs.some((i) => typeof i !== 'string')) {
+    if (inputs.some(i => typeof i !== 'string')) {
         throw new TypeError('Input must be a string or an array of strings');
     }
 

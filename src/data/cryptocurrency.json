@@ -72,7 +72,9 @@
         "url": "",
         "regex": "(?:4([0-9]|[A-B])[a-zA-Z0-9]{93})",
         "flags": "",
-        "tests": ["47DF8D9NwtmefhFUghynYRMqrexiZTsm48T1hhi2jZcbfcwoPbkhMrrED6zqJRfeYpXFfdaqAT3jnBEwoMwCx6BYDJ1W3ub"],
+        "tests": [
+            "47DF8D9NwtmefhFUghynYRMqrexiZTsm48T1hhi2jZcbfcwoPbkhMrrED6zqJRfeYpXFfdaqAT3jnBEwoMwCx6BYDJ1W3ub"
+        ],
         "tags": ["Cryptocurrency", "Cryptocurrency Wallet", "Finance"]
     },
     {

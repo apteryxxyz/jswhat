@@ -27,29 +27,32 @@ const Options = [
     {
         name: ['rarity', 'r'],
         value: (s: string) => s.split(',').slice(0, 2).map(Number),
-        description: 'Filter the results by rarity, one or two numbers from 0 and 1, searated by commas.',
+        description:
+            'Filter the results by rarity, one or two numbers from 0 and 1, searated by commas.',
     },
     {
         name: ['filter', 'f'],
-        value: (s: string) => s.split(',').map((s) => s.trim()),
-        description: 'Filter the results by name, short name, category, or tags, separated by commas.',
+        value: (s: string) => s.split(',').map(s => s.trim()),
+        description:
+            'Filter the results by name, short name, category, or tags, separated by commas.',
     },
     {
         name: ['exclude', 'e'],
-        value: (s: string) => s.split(',').map((s) => s.trim()),
-        description: 'Exclude the results by name, short name, category, or tags, separated by commas.',
+        value: (s: string) => s.split(',').map(s => s.trim()),
+        description:
+            'Exclude the results by name, short name, category, or tags, separated by commas.',
     },
 ];
 
 function parseOptions(args: string[]): Record<string, any> {
     const options = {};
     const flags = args
-        .map((a) => Regexes.map((r) => a.match(r)))
+        .map(a => Regexes.map(r => a.match(r)))
         .flat()
         .filter(Boolean) as RegExpMatchArray[];
 
     function parseOption(name: string, value: any) {
-        const option = Options.find((o) => o.name.includes(name));
+        const option = Options.find(o => o.name.includes(name));
         if (!option) return;
 
         if (option.value === 'boolean') {
@@ -64,7 +67,7 @@ function parseOptions(args: string[]): Record<string, any> {
 
     for (const flag of flags) {
         if (ShortRegex.test(flag[0])) {
-            flag[1].split('').forEach((f) => parseOption(f, true));
+            flag[1].split('').forEach(f => parseOption(f, true));
         } else if (LongRegex.test(flag[0])) {
             parseOption(flag[1], flag[2]);
         }
@@ -82,7 +85,7 @@ void (function _() {
     try {
         const args = process.argv.slice(2);
         const options = parseOptions(args);
-        const inputs = args.filter((a) => !a.startsWith('-'));
+        const inputs = args.filter(a => !a.startsWith('-'));
 
         if (options.version) return console.info(what.version);
 
@@ -95,7 +98,7 @@ void (function _() {
                         'Based on pyWhat (https://github.com/bee-san/pyWhat)\n' +
                         '\nUsage: what <inputs> [options]\n\n' +
                         'Options:\n'
-                    }${Options.map((o) => {
+                    }${Options.map(o => {
                         let string = ' ';
                         let count = 20 - o.name[0].length;
                         if (o.name[1]) {
@@ -113,9 +116,9 @@ void (function _() {
                         'e@mail.com g@mail.com fakemail.com -s --filter="Email Address"',
                         'e@mail.com g@mail.com hot@mail.com mail.google.com -s --exclude="Email"',
                     ]
-                        .map((e) => ` * what ${e}`)
+                        .map(e => ` * what ${e}`)
                         .join('\n')}\n`;
-                })(),
+                })()
             );
         }
 
@@ -132,13 +135,13 @@ void (function _() {
                 console.log('\x1b[36m%s\x1b[0m', header, '\n');
 
                 console.table(
-                    matches.map((m) => ({
+                    matches.map(m => ({
                         'Matched at': m.matched,
                         'Identified as': m.shortName,
                         Description: m.description || 'None',
                         URL: m.url || 'None',
                     })),
-                    ['Matched at', 'Identified as', 'Description', 'URL'],
+                    ['Matched at', 'Identified as', 'Description', 'URL']
                 );
 
                 if (data.length > 25) console.log('\x1b[36m%s\x1b[0m', header);
