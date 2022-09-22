@@ -106,7 +106,7 @@ The node module is very simple to use, containing only a single method.
 ```ts
 const what = require('jswhat');
 // OR
-import * as what from 'jswhat';
+import what from 'jswhat';
 ```
 
 `<what>.is(<inputs> [, options]);`

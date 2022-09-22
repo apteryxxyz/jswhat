@@ -1,6 +1,6 @@
 #! /usr/bin/env node
 
-import * as what from '../src';
+import what from '../src';
 import type { Match } from '../src';
 const timer = Date.now();
 
