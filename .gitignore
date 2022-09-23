@@ -1,4 +1,6 @@
 node_modules/
 .yarn/*
 !.yarn/releases/
+!.yarn/plugins/
 dist/
+temp/
