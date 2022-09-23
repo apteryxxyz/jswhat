@@ -87,9 +87,9 @@ void (function _() {
         const options = parseOptions(args);
         const inputs = args.filter(a => !a.startsWith('-'));
 
-        if (options.version) return console.info(what.version);
+        if (options['version']) return console.info(what.version);
 
-        if (!inputs.length || options.help) {
+        if (!inputs.length || options['help']) {
             return console.log(
                 (function _() {
                     return `${
@@ -110,9 +110,6 @@ void (function _() {
                         '192.168.0.2',
                         'e@mail.com --search',
                         'dQw4w9WgXcQ --filter=media',
-                        'path/to/file --nontext --search',
-                        'https://raw.github.com/apteryxxyz/jswhat/main/README.md -ns',
-                        '--tags',
                         'e@mail.com g@mail.com fakemail.com -s --filter="Email Address"',
                         'e@mail.com g@mail.com hot@mail.com mail.google.com -s --exclude="Email"',
                     ]

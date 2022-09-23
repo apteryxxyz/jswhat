@@ -1,4 +1,4 @@
-import pkg from '../package.json';
+import * as pkg from '../package.json';
 import { identify } from './identify';
 export * from './identify';
 import type { Match, Options } from './types';

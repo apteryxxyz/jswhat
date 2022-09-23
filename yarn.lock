@@ -1891,20 +1891,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"apteryx-prettier-config@npm:^1.1.0":
-  version: 1.1.0
-  resolution: "apteryx-prettier-config@npm:1.1.0"
-  dependencies:
-    prettier-no-jsx-parens: ^2.6.2
-  peerDependencies:
-    prettier: "*"
-  dependenciesMeta:
-    prettier-no-jsx-parens:
-      optional: true
-  checksum: 1c22451c734315518658ff4fc553044ce6cbb41bfdee5d3e48a20f609a397f875ff54f38c9b85ceb7130dd42d7596ffa740154d776920dcae5080e7355acf9e7
-  languageName: node
-  linkType: hard
-
 "argparse@npm:^2.0.1":
   version: 2.0.1
   resolution: "argparse@npm:2.0.1"
@@ -3637,7 +3623,6 @@ __metadata:
     "@types/web": ^0.0.67
     "@typescript-eslint/eslint-plugin": ^5.38.0
     "@typescript-eslint/parser": ^5.38.0
-    apteryx-prettier-config: ^1.1.0
     babel-loader: ^8.2.5
     bundle-declarations-webpack-plugin: ^3.1.0
     eslint: ^8.23.1
@@ -3646,6 +3631,8 @@ __metadata:
     eslint-plugin-prettier: ^4.2.1
     gen-esm-wrapper: ^1.1.3
     prettier: ^2.7.1
+    prettier-config-apteryx: ^1.0.0
+    ts-config-apteryx: ^1.0.0
     tslib: ^2.4.0
     webpack: ^5.73.0
     webpack-cli: ^4.10.0
@@ -4099,6 +4086,20 @@ __metadata:
   version: 1.2.1
   resolution: "prelude-ls@npm:1.2.1"
   checksum: cd192ec0d0a8e4c6da3bb80e4f62afe336df3f76271ac6deb0e6a36187133b6073a19e9727a1ff108cd8b9982e4768850d413baa71214dd80c7979617dca827a
+  languageName: node
+  linkType: hard
+
+"prettier-config-apteryx@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "prettier-config-apteryx@npm:1.0.0"
+  dependencies:
+    prettier-no-jsx-parens: ^2.6.2
+  peerDependencies:
+    prettier: "*"
+  dependenciesMeta:
+    prettier-no-jsx-parens:
+      optional: true
+  checksum: 4ab755882835796f0845280d6d644de2fd034801a0bffd45f0451cf2f6334e93b14b73cb5241bfe79b98ed1d35ce9ad19334822d2a67b35e9fa1ebf42e675bcf
   languageName: node
   linkType: hard
 
@@ -4699,6 +4700,13 @@ __metadata:
   dependencies:
     is-number: ^7.0.0
   checksum: f76fa01b3d5be85db6a2a143e24df9f60dd047d151062d0ba3df62953f2f697b16fe5dad9b0ac6191c7efc7b1d9dcaa4b768174b7b29da89d4428e64bc0a20ed
+  languageName: node
+  linkType: hard
+
+"ts-config-apteryx@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "ts-config-apteryx@npm:1.0.0"
+  checksum: ceeca421d85493e7ddf90eeef5b569ad547bdae0b9ed49fd25619080da482da53e3782321d023cbecfca3c1b41ffd5fe0fe26e2ed3497047a18a11f19b8769f8
   languageName: node
   linkType: hard
 

@@ -1,13 +1,13 @@
 import type { Options, Item, Match } from './types';
 
-import Credentials from './data/credentials.json';
-import CreditCards from './data/credit-cards.json';
-import Cryptocurrency from './data/cryptocurrency.json';
-import CyberSecurity from './data/cyber-security.json';
-import Identifiers from './data/identifiers.json';
-import Other from './data/other.json';
-import SocialMedia from './data/social-media.json';
-import PhoneCodes from './data/phone-codes.json';
+import * as Credentials from './data/credentials.json';
+import * as CreditCards from './data/credit-cards.json';
+import * as Cryptocurrency from './data/cryptocurrency.json';
+import * as CyberSecurity from './data/cyber-security.json';
+import * as Identifiers from './data/identifiers.json';
+import * as Other from './data/other.json';
+import * as SocialMedia from './data/social-media.json';
+import * as PhoneCodes from './data/phone-codes.json';
 export const Regexes = [
     ...Credentials,
     ...CreditCards,
